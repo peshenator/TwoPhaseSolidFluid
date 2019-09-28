@@ -299,7 +299,7 @@ system theory for\\[1mm] multiphase mixtures}}
 % ABSTRACT
 \begin{abstract} 
 \noindent
-A multiphase model and its application to the wavefields numerical simulation 
+A multiphase model and its application to  wavefields numerical simulation 
 are discussed in the context of modeling of compressible fluid flows in elastic 
 porous media. The derivation of the model is based 
 on  a theory of 
@@ -321,12 +321,12 @@ Governing equations for small amplitude wave propagation in a uniform
 porous medium saturated 
 with a single fluid are derived. They form a first-order hyperbolic PDE system 
 written in 
-terms of stress and velocities and, like in Biot’s model, predict three type of 
+terms of stress and velocities and, like in Biot's model, predict three type of 
 waves existing in real fluid-saturated porous media: fast and 
 slow longitudinal waves and a shear wave. For the 
 numerical solution of these equations, an efficient numerical method based on a
 staggered-grid finite 
-difference scheme is used. The results of solving some numerical test problems is presented and discussed.
+difference scheme is used. The results of solving some numerical test problems are presented and discussed.
 
 \end{abstract}
 %-------------------------------------------------------
@@ -361,89 +361,88 @@ difference scheme is used. The results of solving some numerical test problems i
 \section{Introduction} \label{sec:introduction}
 %
 The modeling of fluid flows in porous media is of permanent interest in many geophysical and 
-industrial applications. The starting point of research developments in this field was the series 
-of pioneering work of Bio \cite{Biot1956,Biot1956a,Biot1962}, 
+industrial applications. The starting point of research developments in this field was a series 
+of pioneering works by Biot \cite{Biot1956,Biot1956a,Biot1962}, 
 in which a model of elastic wave propagation in 
-saturated porous media was proposed. Some modification and generalization of 
+saturated porous media was proposed. Some modifications and generalizations of 
 the model 
-have been done in the past (see, for example 
-\cite{Carcione2010,Masson2006,Winkler1989} and references therein) and at 
-present, Biot's approach is 
-the commonly accepted and widely used in geophysical community. Nevertheless, many actual 
-technological and scientific problems such as geothermal energy extraction, CO2 storage, hydraulic 
-fracturing require a development of new advanced models and methods. 
+have been made (see, for example 
+\cite{Carcione2010,Masson2006,Winkler1989} and references therein), and at 
+present Biot's approach is 
+a commonly accepted and widely used one in geophysical community. Nevertheless, many actual 
+technological and scientific problems, such as geothermal energy extraction, CO2 storage, hydraulic 
+fracturing, etc. require new advanced models and methods. 
 
-For the development of the nonlinear, temperature dependent processes in porous media the methods of continuum mechanics, and in particular multiphase theories can be succesfully applied. 
+To simulate the development of nonlinear, temperature dependent processes in porous media, methods of continuum mechanics and, in particular, multiphase theories can be successfully used. 
 %A comprehensive review of the past and existing aproaches in the development of porous media %models one can find in the book \cite{Nikolaevsky}
-Perhaps, most consistently the two-phase approach to poroelasticity has been 
-inplemented by Wilmanski in \cite{Wilmanski1998,Wilmanski2006} (see also 
-references therin). In particular, in the review paper \cite{Wilmanski2006}, 
-the structure of Biot's poroelastic model is analysed and its admissibility 
-within the fundamental principles of continuum mechanics is discussed. 
+A two-phase approach to poroelasticity has been, perhaps, most consistently
+implemented by Wilmanski in \cite{Wilmanski1998,Wilmanski2006} (see also 
+references therein). In particular, in a review paper, \cite{Wilmanski2006}, 
+the structure of Biot's poroelastic model was analysed and its consistency 
+with the fundamental principles of continuum mechanics was discussed. 
 
-In recent years, considerable attention has been paid to the modeling of large deformations of saturated porous media and their application in various fields, in particular in medicine, see
-for example \cite{Khoei2011,Rohan2017,Pesavento2017}.
-It is necessary to mention a large deformation model of the saturated porous 
+In recent years, considerable attention has been paid to the modeling of large-deforming saturated porous media and their applications in various fields, in particular in medicine, see,
+for example, \cite{Khoei2011,Rohan2017,Pesavento2017}.
+Worthy of mention is a large-deformation model of a saturated porous 
 medium proposed by Dorovsky 
-\cite{BlokhinDorovsky1995}, in which the key point of the model is its 
+\cite{BlokhinDorovsky1995}, in which the key point of the model is  
 thermodynamic consistency and hyperbolicity of the governing equations. 
-Nevertheless, there is still no a conventional thermodynamically consistent 
-formulation of multiphase mixture flow model in the  deforming porous medium 
-taking into account finite deformations. 
+Nevertheless, there is still no  thermodynamically consistent 
+formulation of a multiphase mixture flow model in a  deforming porous medium 
+with finite deformations. 
 
-In this paper, we apply a powerful method of designing of new models of 
-complex continuum media  based on the thermodynamically compatible system 
-theory \cite{God1961,Godunov:1995a,Godunov1996} and allowing the development of 
-well-posed models satisfying 
+In this paper, we apply a powerful method of designing  new models of 
+complex continuum media, which is  based on a thermodynamically compatible system 
+theory \cite{God1961,Godunov:1995a,Godunov1996}. It allows the development of 
+well-posed models satisfying the
 fundamental laws of irreversible thermodynamics. 
 In \cite{Godunov:1995a,Rom1998,Romenski2001,Godrom2003,SHTC-GENERIC-CMAT},
 a class of Symmetric Hyperbolic Thermodynamically Compatible (SHTC) systems was 
-formulated, which is able to describe many known classical equations of 
+formulated  to describe many known classical equations of 
 continuum mechanics and electrodynamics (fluid mechanics, solid mechanics, 
 electrodynamics, magnetohydrodynamics)
-including both, advective and dissipative processes. All SHTC systems have nice 
+including advective and dissipative processes. All SHTC systems have nice 
 mathematical properties: symmetric hyperbolicity in the sense of Friedrichs 
 \cite{Friedrichs1958} and
-conservative form of the equations. Solutions of the governing PDE system 
+a conservative form of the equations. The solutions to the governing PDE system 
 satisfy 
-fundamental laws of non-equilibrium irreversible thermodynamics, namely the 
-conservation of total energy (first law) and non-decreasing of the physical 
+fundamental laws of non-equilibrium irreversible thermodynamics:  
+conservation of total energy (first law) and non-decreasing of  physical 
 entropy (second law). 
 
-The SHTC system theory is a first principle type theory. It allows to derive 
+The SHTC system theory is a first principle type theory. It allows the derivation of
 governing PDEs for a quite wide class of physical 
 processes from a variational principle \cite{SHTC-GENERIC-CMAT} (Hamilton’s 
 principle of stationary action). In particular, the SHTC approach has been 
-successfully applied to the development of hierarchy of compressible 
+successfully applied to the development of a hierarchy of compressible 
 multi-phase flow models 
 \cite{Romenski2007,RomDrikToro2010,Romenski2016,PeshGrmRom2015}.
- Recently, a unified SHTC model of Newtonian continuum mechanics was developed 
-\cite{DPRZ2016,DPRZ2017}, which simultaneously describes the dynamics of 
-elastoplastic solids, as well as viscous and non-viscous fluids in the presence 
-of electromagnetic field. 
-In the present paper, we extend this unified model to the description of 
-solid-fluid two-phase flows, and the governing equations of the model 
-also belong to the class of SHTC equations. The interfacial friction between 
+ Recently, a unified SHTC model of Newtonian continuum mechanics has been developed 
+\cite{DPRZ2016,DPRZ2017}. It simultaneously describes the dynamics of 
+elastoplastic solids, as well as of viscous and non-viscous fluids in the presence 
+of electromagnetic fields. 
+In the present paper, we extend this unified model to  describe 
+solid-fluid two-phase flows. The governing equations of the model 
+also belong to the class of SHTC equations. The interfacial friction between the
 liquid and solid phases and shear stress relaxation are implemented in the 
 model as relaxation-type source terms in accordance with the laws of 
 thermodynamics. 
-The latter allows to account the dependence of elastic moduli on frequency in 
-the time domain and apply a difference numerical methods to study wave 
+The latter allows taking into account the time dependence of elastic moduli on frequency and using numerical methods to study wave 
 propagation problems.  
 
 The rest of the paper is organized as follows. Section\,\ref{sec.theory} 
-briefly describes governing PDEs for the unified model of continuum mechanics 
-and for 
-two-phase compressible fluid model. Then, by combining two aforementioned 
-models, the governing master SHTC system for two-phase solid-fluid medium is 
+briefly describes the governing PDEs for a unified model of continuum mechanics 
+and for a
+two-phase compressible fluid model. By combining the above two  
+models, a governing master SHTC system for a two-phase solid-fluid medium is 
 formulated.
-In Section\,\ref{sec.linear}, on the base of the presented model, the governing 
-equations are derived for small amplitude wave propagation in the stationary 
+In Section\,\ref{sec.linear}, using this model governing 
+equations are derived for small amplitude wave propagation in a stationary 
 saturated porous medium. 
 In Section \ref{Comparison} we
-discuss differences and similarities of Biot's and SHTC model.
-In Section\,\ref{sec.waves}, we derive dispersion 
-relation for the obtained acoustic equations and study the properties of wavefields. 
+discuss the differences and similarities between the Biot and SHTC models.
+In Section\,\ref{sec.waves}, we derive a dispersion 
+relation for the thus obtained acoustic equations and study the properties of the wavefields. 
 In Section\,\ref{sec.numerics}, an efficient finite difference method for 
 small amplitude wave propagation is presented and some numerical results are 
 discussed.         
@@ -2429,7 +2428,7 @@ longitudinal and shear waves appear in the elastic medium.
 \end{figure}
 
 
-\section{Conclusion}
+\section{Conclusions}
 
 An extension of the unified model of continuum fluid and solid mechanics 
 \cite{DPRZ2016} for compressible fluid flows in elastoplastic porous media has 
@@ -2467,11 +2466,11 @@ correctly all physical characteristics of the process.
 
 \section*{Acknowledgements}
 % 
-Results by E.R. and G.R. obtained in Sects.2-4 were supported by the Russian Science Foundation grant (project 19-77-20004), whereas results obtained in Sect.5 were supported by RFBR grant 19-01-00347.
-I.P. greatly acknowledges the support by Agence nationale de la recherche (FR) 
-(Grant No. ANR-11-LABX-0040-CIMI) within the program ANR-11-IDEX-0002-02.
-The work by M.D. was partially funded by the European Union's Horizon 2020 Research and Innovation  Programme under the project \textit{ExaHyPE}. 
-Furthermore, MD acknowledges funding from the Italian Ministry of Education, University and Research (MIUR) in the frame of the Departments of Excellence Initiative 2018--2022 attributed to DICAM of the University of Trento, as well as financial support from the University of Trento in the frame of the  \textit{Strategic Initiative Modeling and Simulation}.
+The research of E.R. and G.R. in Sects.2-4 was supported by the Russian Science Foundation  under grant 19-77-20004, the research in Sect.5 was supported by the Russian Foundation for Basic Research under grant 19-01-00347.
+I.P. gratefully acknowledges the support of Agence Nationale de la Recherche (FR) 
+(grant ANR-11-LABX-0040-CIMI) under program ANR-11-IDEX-0002-02.
+The work of M.D. was partially supported by the European Union's Horizon 2020 Research and Innovation  Programme under project \textit{ExaHyPE}. 
+MD also gratefully acknowledges funding from the Italian Ministry of Education, University and Research (MIUR) under the Departments of Excellence Initiative 2018--2022 attributed to DICAM of the University of Trento, as well as financial support from the University of Trento under the  \textit{Strategic Initiative Modeling and Simulation}.
 
 
 
