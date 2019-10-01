@@ -460,7 +460,7 @@ discussed.
 %elastic and elastoplastic solids as particular cases. 
 
 
-\section{System of governing PDEs for poroelastic medium}\label{sec.theory}
+\section{System of governing PDEs for poroelastic media}\label{sec.theory}
 
 To develop a poroelastic model whose governing equations form a symmetric 
 hyperbolic thermodynamically compatible (SHTC) system, a unified thermodynamically compatible continuum model formulated in 
@@ -470,7 +470,7 @@ two-phase compressible fluid model \cite{RomDrikToro2010}.
 \subsection{SHTC governing equations of unified solid-fluid 
 model}\label{sec.GPR}
 
-The PDE system of the unified model for deforming continuum reads as
+The PDE system of the unified model for a deforming continuum reads as
 \begin{subequations}\label{eqn.HPR}
 \begin{eqnarray} 
 	&&\displaystyle\frac{\partial \rho v^i}{\partial t}+\frac{\partial 
@@ -658,7 +658,7 @@ It means that the two-phase equations \eqref{eqn.HPRFF} with the closing
 relations \eqref{Thermod.forces} can also be written as a symmetric hyperbolic 
 system.
 
-\subsection{Thermodynamically compatible master system for two-phase saturated porous medium}
+\subsection{Thermodynamically compatible master system for two-phase saturated porous media}
 
 The SHTC systems of the unified continuum model and the two-phase compressible fluid flow model presented in 
 the previous sections can be obtained as subsystems of a general master 
@@ -671,9 +671,9 @@ formulation of irreversible non-equilibrium thermodynamics known as GENERIC is
 discussed in \cite{SHTC-GENERIC-CMAT}. In 
 \cite{PeshGrmRom2015}, the above-mentioned master system is applied to the derivation 
 of a model for 
-two-phase solid-fluid medium experiencing a stress-induced solid-fluid phase 
+two-phase solid-fluid media experiencing a stress-induced solid-fluid phase 
 transformation. The goal of the present 
-paper is to develop a two-phase model for compressible fluid flow in deformed porous media.
+paper is to develop a two-phase model for compressible fluid flow in deforming porous media.
 
 Let us consider the following PDE master system:
 \begin{subequations}\label{eqn.MS}
@@ -708,43 +708,43 @@ x_k}
    
 The application of the master system \eqref{eqn.MS} to designing a concrete 
 physical process has to 
-be done by the proper choice of generalized energy potential $ E $. If we, for 
-example, take $E=E(\vv,\rho,\AA,s)$, then we can neglect equations 
-\eqref{eqn.contiMS1}, \eqref{eqn.relvelMS}, \eqref{eqn.alphaMS} and arrive to 
+be done by the proper choice of the generalized energy potential $ E $. If, for 
+example, we take $E=E(\vv,\rho,\AA,s)$, we can neglect equations 
+\eqref{eqn.contiMS1}, \eqref{eqn.relvelMS}, \eqref{eqn.alphaMS} and obtain
 the PDEs for the unified model of continuum mechanics \eqref{eqn.HPR}.
-On the other hand, if we take $E=E(\alpha_1, c_1, \rho, \ww, s)$, then we 
-arrive at the 
+On the other hand, if we take $E=E(\alpha_1, c_1, \rho, \ww, s)$, we 
+obtain the 
 governing PDEs for compressible two-phase flow \eqref{eqn.HPRFF}. Therefore,
 the governing PDEs for deformed continuum and for compressible two-phase fluid 
-flow can be viewed as the consequences of \eqref{eqn.MS}, it seems natural to 
-take this general system as a basis for two-phase solid-fluid mixture model. 
+flow can be viewed as consequences of \eqref{eqn.MS}. It seems natural to 
+take this general system as a basis for a two-phase solid-fluid mixture model. 
 
 
-First, it is necessary to identify parameters of state in \eqref{eqn.MS} with 
+First, we identify the parameters of state in \eqref{eqn.MS} with 
 physical parameters characterizing 
-deforming porous medium.
-Let parameter $\alpha_1$ characterizes volume fraction of the liquid component 
+deforming porous media.
+Let the parameter $\alpha_1$ characterize the volume fraction of the liquid component 
 in the solid-fluid mixture, which means that it can be identified with the 
-porosity 
+porosity,
 usually denoted as $ \phi $. Then $\alpha_2=1-\alpha_1$ is the volume fraction 
-of the solid phase of porous material. As in Section\,\ref{sec.twophase}, the mixture density  
+of the solid phase of the porous material. As in Section\,\ref{sec.twophase}, the mixture density  
 $\rho$ is connected 
 with the phase mass densities via $\rho=\alpha_1\rho_1+\alpha_2\rho_2$. 
-Parameter 
-$c_1$ represents the mass fraction of the liquid component. And by the analogy 
+The parameter 
+$c_1$ represents the mass fraction of the liquid component. And, by analogy 
 with the two-phase flow
 model, $v^i=c_1v_1^i+c_2v_2^i$ is the velocity of the mixture and 
 $w^i=v_1^i-v_2^i$ is the relative velocity.
-We consider the single entropy approximation of two-phase medium, and introduce 
+We consider a single entropy approximation of the two-phase medium and introduce 
 the entropy of the mixture $s$. Finally, as a measure of deformation of the 
-element of porous medium we consider the distortion $\AA$ of the mixture.  
+element of the porous medium we consider the distortion $\AA$ of the mixture.  
 
 
 Let us now take the generalized total energy potential in the same form as in 
 the case 
-of unified deforming continuum \eqref{energy}, but taking into account 
-two-phase nature of medium and assuming that the energy corresponding to the 
-volume deformation is defined as it is in the two-phase fluid model: 
+of a unified deforming continuum \eqref{energy}, but taking into account 
+the two-phase nature of the medium and assuming that the energy corresponding to  
+volume deformation is defined as in the two-phase fluid model: 
 \begin{align}
 E=E_1(\alpha_1, c_1, \rho, s)+E_2(c_1,\rho,s,\AA)+E_3(\vv)+E_4(c_1,\ww). 
 \label{energy.SF}
@@ -754,30 +754,30 @@ Here we assume that
 E_1=c_1e_1(\rho_1,s)+c_2e_2(\rho_2,s), \quad
 E_3=\frac{1}{2}\vv^2, \quad E_4=c_1c_2\frac{1}{2}\ww^2.
 \end{align}
-We take the part of the energy related to the volume deformation as a mass 
-averaged energy of phases because it is naturally appears from the additivity 
+We take the part of energy related to volume deformation as the mass 
+averaged energy of the phases, because it naturally follows from the additivity 
 of the energy per unit volume:
 \begin{align} \label{energy.mix}
 \rho E_1=\alpha_1 \rho_1e_1(\rho_1,s)+\alpha_2 \rho_2 e_2(\rho_2,s). 
 \end{align}
-The kinetic energy of the relative motion $E_4$ remains the same as is in the 
+The kinetic energy of the relative motion, $E_4$, remains the same as is in the 
 two-phase flow model.
-What concerns the energy of shear deformation $E_2$, there is no rigorous 
+As to the energy of shear deformation, $E_2$, there is no rigorous 
 justification for its definition. It is clear that the volume deformation of 
-two-phase mixture can be represented as the sum of volume deformations of solid 
-and fluid constituents. On the other hand, general deformation and shear 
-deformation in particular can not be 
-simply divided into solid and fluid parts and hence, one can take the 
+two-phase mixture can be represented as the sum of the volume deformations of the solid 
+and fluid constituents. On the other hand, general deformation, and shear 
+deformation in particular, cannot be 
+simply divided into solid and fluid parts, and hence one can take the 
 normalized 
 distortion 
-defined is Section\,\ref{sec.GPR} as the measure of deformation of the whole element 
-of saturated porous medium. The energy of shear deformation then can be 
+defined is Section\,\ref{sec.GPR} as a measure of deformation of the whole element 
+of the saturated porous medium. The energy of shear deformation then can be 
 characterized by the energy introduced in Section\,\ref{sec.GPR},
 $
 \frac18c_s^2\left(\tr({\ggg^2})-3\right)
 $. 
-Then, we require that in the solid-fluid mixture the shear energy tends to zero 
-if the amount of solid phase tends to zero. That is why we take the elastic  
+Then we require that shear energy tend to zero 
+if the amount of solid phase tends to zero in the solid-fluid mixture. That is why we take elastic  
 energy in the form
 \begin{align} \label{energy,shear}
 E_2=c_2 \frac{1}{8}c_s^2\left(\tr({\ggg^2})-3\right),
@@ -786,29 +786,29 @@ where, in fact, instead of $c_2$ one can take an arbitrary
 function of $c_2$ which is equal to zero in the case of $c_2=0$ (pure liquid) 
 and 
 equal to $1$ in the case of $c_2=1$ (pure solid),
-However, our choice seems to be the simplest one and gives physically 
-reasonable results in the wavefields modeling.
+However, our choice seems to be the simplest one, and it gives physically 
+reasonable results in the modeling of wavefields.
 
 As soon as we define the generalized energy by \eqref{energy.SF}, 
-\eqref{energy12.SF}, \eqref{energy.mix}, \eqref{energy,shear} the closing 
+\eqref{energy12.SF}, \eqref{energy.mix}, \eqref{energy,shear}, the closing 
 relations in the phase interaction source terms are defined via the 
 thermodynamic 
-forces
+forces:
 \begin{align}
 \psi_{ik}=E_{A_{ik}}, \quad \lambda_{k}=E_{w_k}, \quad \varphi=E_{\alpha_1}.
 \end{align} 
 
 The solution to system \eqref{eqn.MS} satisfies the energy conservation law 
-which reads
+which reads as
 \begin{align} \label{eqn.energyMS}
 \displaystyle\frac{\partial \rho E}{\partial t}+
-\frac{\partial \left(\rho  v^k E +v^i(p \delta_{ik}+\rho w^i E_{w^k}-\sigma_{ik}) +\rho E_{c_1}E_{w_k} \right)}{\partial x_k}=0,
+\frac{\partial \left(\rho  v^k E +v^i(p \delta_{ik}+\rho w^i E_{w^k}-\sigma_{ik}) +\rho E_{c_1}E_{w_k} \right)}{\partial x_k}=0
 \end{align}
-and should be used in the development of numerical methods instead of entropy balance law \eqref{eqn.entropyMS}. 
+and should be used instead of the entropy balance law \eqref{eqn.entropyMS} in the development of numerical methods. 
 
-Finally, with the use of the above definitions of energies we arrive to the 
-following system of governing PDEs for the compressible flow in deforming 
-porous medium written in terms of the phase parameters
+Finally, with the above definitions of the energies, we obtain the 
+following system of governing PDEs for compressible flow in deforming 
+porous media, which is written in terms of the phase parameters:
 \begin{subequations}\label{eqn.PV}
 	\begin{eqnarray}
 &&\displaystyle\frac{\partial 
@@ -843,8 +843,8 @@ x_k}
 \label{eqn.entropyPV}
 \end{eqnarray}
 \end{subequations}
-For derivation of above system from equations \eqref{eqn.MS} the following 
-formulae for the thermodynamic forces should be used:
+For the derivation of the above system from equations \eqref{eqn.MS}, the following 
+formulae for the thermodynamic forces are used:
 \begin{eqnarray} \label{Thermod.forcesSF}
 & E_{\alpha_1}=\frac{p_2-p_1}{\rho}, \quad p=\rho^2E_\rho={\alpha_1p_1+\alpha_2p_2}, 
 \quad \sigma_{ij}=-c_2 \rho \frac{c_s^2}{2}({g_{ik}g_{kj}-\frac{1}{3}g_{mn}g_{nm}\delta_{ij}})=
@@ -856,17 +856,17 @@ E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2-E_2+(1-2c_1)|\ww|^2/2, \\
 E_s=T=c_1\frac{\partial e_1}{\partial s}+c_2\frac{\partial e_2}{\partial s} 
 \nonumber
 \end{eqnarray}  
-For derivation of \eqref{Thermod.forcesSF} one should use formula \eqref{energy.mix} for the internal energy of the mixture and relationship between mixture parameters of flow and individual phase densities $\rho_1=\frac{\rho c_1}{\alpha_1}, \rho_2=\frac{\rho c_2}{\alpha_2}$.
-Details of derivation can be found, for example, in 
+For the derivation of \eqref{Thermod.forcesSF} we use formula \eqref{energy.mix} for the internal energy of the mixture and the relationship between the mixture parameters and the individual phase densities: $\rho_1=\frac{\rho c_1}{\alpha_1}, \rho_2=\frac{\rho c_2}{\alpha_2}$.
+Details of the derivation can be found, for example, in 
 \cite{RomDrikToro2010,Romenski2016}. 
  
-System \eqref{eqn.PV} is equivalent to \eqref{eqn.MS} up to the replacement of 
+System \eqref{eqn.PV} is equivalent to \eqref{eqn.MS} if the
 total mass conservation law 
-\eqref{eqn.contiMS} by the mass conservation law for the second phase 
+\eqref{eqn.contiMS} is replaced by the mass conservation law for the second phase 
 \eqref{eqn.contiPV2}.
  
-\section{System of governing PDEs for small amplitude wave propagation in a 
-saturated porous medium}\label{sec.linear}
+\section{System of governing PDEs for small amplitude wave propagation in  
+saturated porous media}\label{sec.linear}
 
 In this section, the derivation of equations for small amplitude wave 
 propagation in the saturated porous medium at equilibrium is presented. For the 
