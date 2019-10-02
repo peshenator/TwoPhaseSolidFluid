@@ -860,7 +860,7 @@ For the derivation of \eqref{Thermod.forcesSF} we use formula \eqref{energy.mix}
 Details of the derivation can be found, for example, in 
 \cite{RomDrikToro2010,Romenski2016}. 
  
-System \eqref{eqn.PV} is equivalent to \eqref{eqn.MS} if the
+The system of equations \eqref{eqn.PV} is equivalent to \eqref{eqn.MS} if the
 total mass conservation law 
 \eqref{eqn.contiMS} is replaced by the mass conservation law for the second phase 
 \eqref{eqn.contiPV2}.
@@ -868,12 +868,12 @@ total mass conservation law
 \section{System of governing PDEs for small amplitude wave propagation in  
 saturated porous media}\label{sec.linear}
 
-In this section, the derivation of equations for small amplitude wave 
-propagation in the saturated porous medium at equilibrium is presented. For the 
-derivation, we first transform system \eqref{eqn.PV} to a more convenient form. 
-Thus, instead of the total momentum equation 
-and equation for the relative velocity we consider momentum equations of each 
-constituent, which can be derived from \eqref{eqn.momentumPV} and 
+In this section, we derive equations for small amplitude wave 
+propagation in a saturated porous medium at equilibrium. For the 
+derivation, we first transform equations \eqref{eqn.PV} to a more convenient form. 
+Instead of the total momentum equation 
+and the equation for the relative velocity, consider momentum equations for each of the
+constituents. These are derived from \eqref{eqn.momentumPV} and 
 \eqref{eqn.relvelPV} and read as
 \begin{eqnarray}\label{eqns.momentum1.quasilinear}
 &&\frac{\partial v^i_1}{\partial t}+v^k_1\frac{\partial v^i_1}{\partial x_k}+
@@ -891,12 +891,12 @@ constituent, which can be derived from \eqref{eqn.momentumPV} and
 &&-c_1(v^k_1-v^k_2)\left(c_2\left(\frac{\partial v^i_1}{\partial x_k}-\frac{\partial v^k_1}{\partial x_i}\right)+c_1\left(\frac{\partial v^i_2}{\partial x_k}-\frac{\partial v^k_2}{\partial x_i}\right) \right)
 =\frac{\alpha_1 \rho_1}{\rho} \frac{c_1c_2}{\theta_2}(v_1^i-v_2^i),
 \end{eqnarray}
-where $a_{mn}=\frac{\partial E_2}{\partial A_{mn}}$, and derivative of $E_2$ with respect to $A_{mn}$ can be computed wit the use of \eqref{EderivA}.
+where $a_{mn}=\frac{\partial E_2}{\partial A_{mn}}$, and the derivative of $E_2$ with respect to $A_{mn}$ can be taken as in \eqref{EderivA}.
 
-In addition to the above equations, we consider the phase mass conservation 
+In addition to the above equations, we consider phase mass conservation 
 laws 
-and balance equations for the volume fraction, distortion and entropy 
-written in the following quasilinear form
+and balance equations for the volume fraction, distortion, and entropy, which can be 
+written in the following quasilinear form:
 \begin{subequations}\label{eqns.quasilinear}
 	\begin{eqnarray} 
 &&\frac{\partial \rho_1}{\partial t}+v^k_1\frac{\partial \rho_1}{\partial 
@@ -921,23 +921,23 @@ x_k}=
 
 \end{subequations}
 
-Small amplitude wave propagation can be described by the PDE system obtained as 
-a linearization of \eqref{eqns.quasilinear} with the coefficients defined in 
-the equilibrium state of the original system. Thus, assume that the medium with 
-a given volume fractions of constituents is at rest and under the reference 
-conditions, that means its parameters of state are:
+Small amplitude wave propagation can be described by a PDE system obtained by 
+linearization of \eqref{eqns.quasilinear} with coefficients defined in 
+the equilibrium state of the original system. Assume that a medium with 
+given volume fractions of the constituents is at rest and under reference 
+conditions. This means that its parameters of state are
 \begin{align}  \label{static.solution}
 v_1^k=v_2^k=0, \quad \rho_1=\rho_1^0, \quad \rho_2=\rho_2^0, 
 \quad \alpha_1=\alpha_1^0, \quad \alpha_2=\alpha_2^0 = 1-\alpha_1^0, \quad A_{ij}=\delta_{ij}, \quad s=0.  
 \end{align}  
-The other parameters of the medium computed wit the above parameters are also correspond to the medium at rest:
+The other parameters of the medium computed with the above ones also correspond to the medium at rest:
 \begin{align}
 p_1=p_2=0, \quad \tilde \sigma_{ik}=0, \quad v^k=0, \quad w^k=0, \quad a_{mn}=0.
 \end{align}
 
-We are interested in the derivation of differential equations for small 
+We are interested in differential equations for small 
 perturbations of the equilibrium solution \eqref{static.solution}. Thus, our 
-goal is to find a solution  to system \eqref{eqns.momentum1.quasilinear}, 
+goal is to find a solution  to the system of equations \eqref{eqns.momentum1.quasilinear}, 
 \eqref{eqns.momentum2.quasilinear}, and 
 \eqref{eqns.quasilinear} in the form
 \begin{subequations}\label{perturbed.solution} 
@@ -949,13 +949,13 @@ goal is to find a solution  to system \eqref{eqns.momentum1.quasilinear},
 		A_{ij}, \quad s=0+\delta s_0.
 	\end{gather}
 \end{subequations}
-Equations for perturbations of equilibrium solution can be derived by 
+Equations for perturbations of the equilibrium solution can be derived by 
 substituting \eqref{perturbed.solution} into 
 \eqref{eqns.momentum1.quasilinear}, 
 \eqref{eqns.momentum2.quasilinear}, and 
-\eqref{eqns.quasilinear} and neglecting terms of higher orders than the 
+\eqref{eqns.quasilinear} and neglecting the terms of orders higher than the 
 first one. 
-The following relations for perturbed phase pressures should also be used:
+The following relations for perturbed phase pressures will also be used:
 \begin{align}\label{pressure.linear}
 \delta p_1 =\frac{K_1}{\rho_1^0} \delta \rho_1, \quad \delta p_2 = \frac{K_2}{\rho_2^0} \delta \rho_2,
 \end{align}
@@ -964,23 +964,22 @@ K_1=\left. \rho_1^0\frac{\partial p_1}{\partial \rho_1}\right|_{\rho_1=\rho_1^0,
 \quad
 K_2=\left. \rho_2^0\frac{\partial p_2}{\partial \rho_2}\right|_{\rho_2=\rho_2^0, s=0} 
 $ 
-are the bulk modulus of the liquid and solid phase.
+are the bulk moduli of the liquid and solid phases, respectively.
 
-The deformation of the medium in case of small perturbations of equilibrium 
+The deformation of the medium in case of small perturbations of the equilibrium 
 solution can be described by any of the known equivalent strain tensors. In 
 particular, one can use 
 the Almansi strain tensor $\bm{\varepsilon} = (\bm{I} - \GG)/2$, where 
 $\GG=\AA^T \AA$. 
-For the small perturbations of the distortion $A_{ij}=\delta_{ij}+\delta 
+For small perturbations of distortion $A_{ij}=\delta_{ij}+\delta 
 A_{ij}$, 
-stress-strain relation \eqref{Thermod.forcesSF} takes the form 
+the stress-strain relation \eqref{Thermod.forcesSF} takes the form 
 \begin{align} \label{stress}
 \sigma_{ij}=2\alpha_2 \rho_2 c^2_s \left(\varepsilon_{ij}-\frac{\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{22}}{3}\delta_{ij}\right),
 \end{align}  
-where $\varepsilon_{ij}=-(\delta A_{ij}+\delta A_{ji})/2$ are components of the 
-Almansi strain tensor $ \bm{\varepsilon} $. Thus, for the case of small
-perturbations, one 
-obtains
+where $\varepsilon_{ij}=-(\delta A_{ij}+\delta A_{ji})/2$ are the components of the 
+Almansi strain tensor $ \bm{\varepsilon} $. Thus, for small
+perturbations we have
 \begin{align} \label{stress1}
 \delta \sigma_{ij}= \alpha_2^0 \tilde \sigma_{ij} =
 2\alpha_2^0 \rho_2^0 c^2_s \left(\varepsilon_{ij}-\frac{\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{22}}{3}\delta_{ij}\right).
@@ -992,7 +991,7 @@ Small perturbation of $E_{\AA}=-\FF^T \bm{\sigma}$ reads as
 \end{align} 
 
 Now, omitting the notation $\delta$ for the perturbations, we obtain the 
-following system
+following system:
 \begin{subequations}\label{eqns.linear.complete0}
 	\begin{eqnarray}
 &&\frac{\partial v^i_1}{\partial t}+
@@ -1021,21 +1020,21 @@ x_j}
 \end{eqnarray}
 \end{subequations}
 
-One can see that the entropy remains constant in time. That means that the 
+One can see that entropy remains constant in time. That means that  
 entropy 
-has no influence in the small perturbation wavefields and the equation for 
+has no influence on small perturbation wavefields, and the equation for 
 entropy can be neglected. Also, because the shear stress $\tilde \sigma_{ij}$ 
-depends on the small strain tensor $\varepsilon_{ij}$,  the equation for the
-distortion $\AA$ \eqref{eqns.linear.complete0.A} can be replaced by the 
+depends on the small strain tensor $\varepsilon_{ij}$,  the equation for 
+distortion $\AA$ \eqref{eqns.linear.complete0.A} can be replaced by an
 equation 
-for $\bm{\varepsilon}$, which reads
+for $\bm{\varepsilon}$, which reads as
 \begin{align}
 \frac{\partial \varepsilon_{ij}}{\partial t} - 
 \frac{1}{2}\left(\frac{\partial v^i}{\partial x_j}+\frac{\partial v^j}{\partial x_i} \right) = 
 -\frac{2}{\theta}\alpha_2^0 \frac{\rho_2^0 c^2_s}{\rho^0} \left(\varepsilon_{ij}-\frac{\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{22}}{3}\delta_{ij}\right).
 \end{align}
 
-Finally, we obtain the following system 
+Finally, we obtain the following system: 
 \begin{subequations}\label{eqns.linear.complete}
 	\begin{eqnarray}
 &&\frac{\partial v^i_1}{\partial t}+
@@ -1065,30 +1064,29 @@ x_i} \right) =
   \end{eqnarray}
 \end{subequations}
 
-These equations form the basis for our studying of small amplitude waves in
+These equations form a basis for our study of small amplitude waves in
 a porous saturated medium at rest. 
 
-Furthermore, we shall assume a condition that helps further simplify PDE 
-system \eqref{eqns.linear.complete}. Our interest is to derive equations for 
-waves, 
-the 
-wavelength of which is much bigger than the characteristic size of the pores. 
-That means that we can assume an instantaneous phase pressure equalizing. This 
-is because this process is fully determined by the pressure waves 
-propagation and reflection at the pore boundaries and thus, the 
-characteristic time scale for reaching the pressure equilibrium is small.
+Furthermore, we will impose a condition that will help further simplify the PDE 
+system \eqref{eqns.linear.complete}. Our concern is to derive equations for 
+waves which have 
+wavelengths  much bigger than the characteristic size of the pores. 
+This means that we assume instantaneous phase pressure equalizing. This 
+is because the process is fully determined by pressure waves 
+propagation and reflection at the pore boundaries and, thus, the 
+characteristic time scale for reaching a pressure equilibrium is small.
 
 The instantaneous relaxation of the phase pressures leads to governing 
-equations obtained as the relaxation limit of \eqref{eqns.linear.complete} at 
+equations obtained in the relaxation limit of \eqref{eqns.linear.complete} as 
 $\theta_1 \rightarrow 0$.
-In this case the resulting system should consist of system 
-\eqref{eqns.linear.complete}, in which the equation for $\alpha_1$ is replaced 
-by the algebraic equation $p_1=p_2=P$. Then, because the phase pressures are 
-equal, using \eqref {pressure.linear}, we have 
+In this case the resulting system is the system 
+\eqref{eqns.linear.complete} in which the equation for $\alpha_1$ is replaced 
+by an algebraic equation: $p_1=p_2=P$. Then, since the phase pressures are 
+equal,  we have from \eqref {pressure.linear} that
 $$\frac{K_1}{\rho^0_1} \rho_1=\frac{K_2}{\rho^0_2} \rho_2$$  
-and hence, two equations for the phase densities $\rho_1,\rho_2$ can be 
+and, hence, the two equations for the phase densities $\rho_1,\rho_2$ can be 
 replaced by 
-the single equation for the pressure $P$:
+a single equation for the pressure $P$:
 \begin{align}\label{pressure.equation}
 \frac{\partial P}{\partial t} +\frac{\alpha_1^0}{\alpha_1^0 K_1^{-1}+\alpha_2^0 K_2^{-1}}
 \frac{\partial v_1^k}{\partial x_k}+
@@ -1096,10 +1094,10 @@ the single equation for the pressure $P$:
 \frac{\partial v_2^k}{\partial x_k} =0.
 \end{align}
 
-Now, if to take into account \eqref{stress}, \eqref{pressure.equation} and $v_1^k=v^k+c_2^0w^k$, 
-$v_2^k=v^k-c_1^0w^k$ and denoting $s_{ik}=\tilde \sigma_{ik}$, the resulting 
-system can be written in terms of the mixture velocities, relative velocities, 
-pressure and shear stress:
+Now, taking into account \eqref{stress}, \eqref{pressure.equation} and $v_1^k=v^k+c_2^0w^k$, 
+$v_2^k=v^k-c_1^0w^k$ and denoting $s_{ik}=\tilde \sigma_{ik}$, we obtain the resulting 
+system written in terms of the mixture velocities, relative velocities, 
+pressure, and shear stress:
 \begin{subequations}\label{stress.velocity}
 	\begin{eqnarray} 
 && \rho^0 \frac{\partial v^i}{\partial t}+\frac{\partial P}{\partial x_i}-
@@ -1121,7 +1119,7 @@ $\mu=\rho_2^0 c_s^2$, and $\tau=\frac{\rho^0 \theta}{2 \rho^0_2 c_s^2}$ is the
 shear stress relaxation time.
 
 Thus, we have derived the PDE system \eqref{stress.velocity} for small 
-amplitude wave propagation in the saturated porous medium at rest. In this 
+amplitude wave propagation in a saturated porous medium at rest. In this 
 system, two dissipation mechanisms are present: (i) friction of the
 fluid on the pore walls and (ii) shear stress relaxation of the 
 saturated porous medium. In the following section, some properties of the 
@@ -1270,14 +1268,14 @@ medium.
 
 
 
-\section{Comparison of the SHTC and Biot models}\label{Comparison}
+\section{Comparison of SHTC and Biot models}\label{Comparison}
 
 \subsection{Theoretical comparison}
 
 
 The most comprehensive comparative study of Biot's model and models developed 
-by the classical two-phase approach based on the continuum thermodynamics can 
-be found in the paper by Wilmanski \cite{Wilmanski2006}.
+by a classical two-phase approach based on continuum thermodynamics has  
+been made by Wilmanski \cite{Wilmanski2006}.
 % As a result it is concluded that "...the
 %structure of Biot’s model of porous materials shows clearly
 %that this model, in spite of its flaws, describes in the linear
@@ -1285,30 +1283,30 @@ be found in the paper by Wilmanski \cite{Wilmanski2006}.
 %with fundamental requirements of continuum thermodynamics."
 %In \cite{Wilmanski2006} it is shown 
 The conclusion of this paper is that the two-phase model contains all 
-information about the features of wave propagation in the saturated porous 
-medium inherent in Biot's model, and in particular predicts the slow pressure 
-waves and qualitatively correctly describes the dependence of the phase 
+information in Biot's model about the features of wave propagation in a saturated porous 
+medium, and, in particular, it predicts the slow pressure 
+waves and gives a qualitatively correct description of the dependence of the phase 
 velocities on frequency.  
 
 
 
 The governing equations of the SHTC model proposed in the present paper differ from 
-those obtained by the classical two-phase solid-fluid approach but we will see 
-that qualitative properties of wavefields have the same features as is in 
+those obtained by the classical two-phase solid-fluid approach, but we will see 
+that qualitatively the properties of wavefields are the same as those in 
 Biot's model.
-We emphasise that the proposed SHTC model can be used for the description of finite deformations of the medium, taking into account the change of porosity under the stress variations and inelastic deformations. 
+We emphasise that the above-proposed SHTC model can be used for describing the finite deformations in the medium by taking into account changes in porosity under stress variations and inelastic deformations. 
 It should be also emphasized that the consideration of finite deformations 
-imposes certain restrictions for definition of deformations of constituents. 
+imposes certain restrictions on the definition of deformations of the constituents. 
 For example, the density of the mixture is an additive parameter which can be 
-defined as the sum of partial densities $ \rho=\alpha_1 \rho_1 + \alpha_2 
-\rho_2$. On the other hand, a decomposition of any deformation measure into 
-deformations of the solid and fluid phases is questionable because this would 
+defined as the sum of partial densities, $ \rho=\alpha_1 \rho_1 + \alpha_2 
+\rho_2$. On the other hand, the decomposition of any deformation into 
+deformations of the solid and fluid phases is questionable, because this could 
 imply the existence of two relaxed reference frames and two sets of Lagrangian 
-coordinates. That is why we consider the distortion $\AA$ as a measure of 
+coordinates. That is why we consider distortion $\AA$ as a measure of 
 deformation of the whole medium and do not consider deformation of the skeleton 
-separately. In this context, we also recall that our unified continuum model 
-for fluids and solids \cite{HPR2016,DPRZ2016,HYP2016} also relies on the 
-deformation-based rather than strain-rate-based description of fluid flows.
+separately. In this context, we recall that our unified continuum model 
+for fluids and solids \cite{HPR2016,DPRZ2016,HYP2016} also relies on a 
+deformation-based rather than a strain-rate-based description of fluid flows.
 
 The stress-strain relation in the SHTC model fully depends on the definition of 
 the thermodynamic potential $ E $ \eqref{energy.SF}. The total stress which is 
@@ -1323,29 +1321,29 @@ In Biot's model, the total stress is defined as
 T_{ik}=\sigma^{\rm ef}_{ik}-n P\delta_{ik},
 \end{align}
 where $\sigma^{\rm ef}_{ik}$ is the so-called effective stress, $P$ is the pore 
-pressure, and $n$ is the Biot coefficient (see, for example 
+pressure, and $n$ is the Biot coefficient (see, for example, 
 \cite{Merxhani2016}). 
-Thus, if to take $\sigma^{\rm ef}_{ik}=\alpha_2\sigma_{ik}$ in our SHTC 
-formulation \eqref{OurTotal.stress} one obtains
+Thus, if we take $\sigma^{\rm ef}_{ik}=\alpha_2\sigma_{ik}$ in our SHTC 
+formulation \eqref{OurTotal.stress}, we have
 \begin{equation}
-T_{ik}=\sigma^{\rm ef}_{ik}-\alpha_1 p_1- \alpha_2 p_2
+T_{ik}=\sigma^{\rm ef}_{ik}-\alpha_1 p_1- \alpha_2 p_2,
 \end{equation}
 and in the case of instantaneous pressure relaxation with $p_1=p_2=P$, we 
-arrive to Biot's formula \eqref{BiotTotal.stress} with 
+obtain Biot's formula \eqref{BiotTotal.stress} with 
 $n=1$.
 
-Furthermore, we note that there is a possibility to specify the energy 
+Furthermore, note that there is a possibility to specify the energy 
 potential in such a way that 
 formula \eqref{BiotTotal.stress} 
 holds also in the SHTC model.
-To do this it is necessary to define the volumetric part of the internal energy 
+To do this we define the volumetric part of internal energy 
 as
 \begin{align*} 
-\rho E_1=n c_1 \alpha_1 \rho_1e_1(\rho_1,s)+\alpha_2 \rho_2 e_2(\rho_2,s). 
+\rho E_1=n c_1 \alpha_1 \rho_1e_1(\rho_1,s)+\alpha_2 \rho_2 e_2(\rho_2,s) 
 \end{align*}
-instead of \eqref{energy.mix}
+instead of \eqref{energy.mix},
 and take the pressure relaxation term in the equation for volume fraction as
-$\frac{ n p_1-p_2}{\rho \theta_1}$. In this paper, we do not discuss this 
+$\frac{ n p_1-p_2}{\rho \theta_1}$. In this paper we do not discuss this 
 possibility in detail. 
 
 %The total stress $T_{ik}$ is defined as a combination of the fluid pressure 
@@ -1365,15 +1363,15 @@ possibility in detail.
 %model the shear stress of the skeleton is used.  
 
 
-What concerns the momentum balance for the fluid constituent, in the SHTC 
+As to the momentum balance for the fluid constituent in the SHTC 
 model, there is 
-an additional force inducing fluid flow which is connected with the shear 
-stress gradient and is not presented in Biot's model. 
-Indeed, introducing the notations $v^i_1=\vf$, $v^i_2=\vs$ for the velocities, 
+an additional force to induce fluid flow, which is connected with the shear 
+stress gradient and  not presented in Biot's model. 
+Specifically, with the notation $v^i_1=\vf$, $v^i_2=\vs$ for the velocities, 
 $\rho^0_1=\rhof$, $\rho^0_2=\rhos$ for the densities,  and
 $c_1=\cf$, $c_2=\cs$ for the mass fractions, 
 equation \eqref{stress.velocity.w} for the relative velocity can be replaced by 
-the equivalent equation for the momentum of the fluid
+the following equivalent equation for the momentum of the fluid:
 \begin{eqnarray}\label{vs.SHTC}
 %&& \rho^0 \frac{\partial v^i}{\partial t}-\frac{\partial T_{ik}}{\partial x_k} 
 %= 0, \nonumber \\
@@ -1387,27 +1385,26 @@ where $\rho^0=\alphaf\rhof+\alphas\rhos$ is the mixture density,
 %the mixture, 
 %$T_{ik}$ is the total stress tensor, 
 $P$ is the fluid pressure, $\sigma_{ik}=\alphas s_{ik}$ is 
-the shear stress, $\cf,\cs$ are the mass fractions of fluid and solid. The 
-shear stress gradient on the left hand-side of \eqref{vs.SHTC} is the term 
+the shear stress, and $\cf,\cs$ are the mass fractions of the fluid and solid constituents, respectively. The 
+shear stress gradient in the left hand-side of \eqref{vs.SHTC} is a term 
 which is present in the 
-SHTC equations and missing in Biot model, e.g. see equation 
-\eqref{Biot.model.vs} below.  In fact, from the physical standpoint, taking 
+SHTC equations and absent in Biot's model, e.g. see equation 
+\eqref{Biot.model.vs} below.  In fact, from a physical standpoint, taking 
 into 
 account the shear stress in the balance equation for the fluid momentum seems 
-to be rather natural because the motion of the fluid can be caused not only by 
-the pressure gradient but also by the tangential deformation of the mixture  
+to be rather natural, because the motion of the fluid may be caused not only by 
+the pressure gradient, but also by tangential deformation of the mixture  
 element.
 
 
 
 Overall, the equations for the pressure and shear stress in the SHTC and 
-Bio models are quite different and cannot be transformed one into another  
-because different stress-strain relationships and elastic moduli are used 
-in these models. Nevertheless, we shall see below that the features of 
-wavefields are qualitatively similar in the both models, and in some cases are 
-close quantitatively by the corresponding choice of material parameters. In the 
-following section, we shall 
-discuss this statement in a more quantitative manner via the plane wave 
+Biot's models are quite different and cannot be transformed one into another,  
+because the stress-strain relationships and elastic moduli used 
+in these models are different. Nevertheless, it will be shown below that the features of 
+wavefields are qualitatively similar in both models, and in some cases they are 
+quantitatively close  by a corresponding choice of the material parameters. In the 
+following section, this statement will be discussed in a more quantitative manner via a plane wave 
 analysis.
 
 %Therefore, one may expect that the lineraised SHTC equations of poroelasticity 
@@ -1415,15 +1412,15 @@ analysis.
 %saturated 
 %porous media as predicted by the Biot model. 
 
-\subsection{Analysis of the wavefields in a saturated porous 
- 	medium}\label{sec.waves}
+\subsection{Analysis of wavefields in saturated porous 
+ 	media}\label{sec.waves}
  
 The 3D system of governing equations for small amplitude wave propagation  
-\eqref{stress.velocity} is quite complex but an informative analysis can be 
-done for 1D plane waves. In this section, we neglect the stress 
-relaxation in the equation for the shear stress tensor of the SHTC model as it 
-is absent in the 
-Biot model.
+\eqref{stress.velocity} is quite complex, but an informative analysis can be 
+made for 1D plane waves. In this section, we neglect the stress 
+relaxation term in the equation for the shear stress tensor of the SHTC model, as it 
+is absent in  
+Biot's model.
 
 %\subsubsection{1D SHTC equations}
 %
@@ -1458,10 +1455,10 @@ Biot model.
 
 The one-dimensional first-order form of the governing equations of the 
 so-called ``low-frequency 
-limit'' of the Biot theory for the vector of state variables $ (v_{\rm s}, q, 
+limit'' in Biot's theory for the vector of state variables $ (v_{\rm s}, q, 
 \sigma,p) 
 $ can be formulated as follows 
-\cite{Carcione2010, Masson2006}
+\cite{Carcione2010, Masson2006}:
 \begin{subequations}\label{eqn.Biot.model}
 	\begin{align}
 		& \rho_{\rm f} \frac{\pd v_{\rm s}}{\pd t} + \rho_{\rm f} \frac{\tort}{\phi} \frac{\pd 
@@ -1484,7 +1481,7 @@ solid) particle velocities, $ \sigma $ and $ p $ are the bulk
 stress and fluid pressure, 
 respectively. Additionally, $ \rho_{\rm f} $ is the fluid density and $ \rho = (1-\phi)\rho_{\rm s} 
 +\phi\rho_{\rm f} $ is the total (mixture) density. Furthermore, the material parameters are 
-defined as follows
+defined as follows:
 \begin{equation}\label{eqn.Biot.param1}
 \lambda_{\rm u} = K_{\rm u} - \frac{2}{3}\mu_{\rm u} = \Km + \alpha^2 M - 
 \frac{2}{3}\mu_{\rm u}, \qquad M = B K_{\rm u}/\alpha, \qquad \alpha = 1- \Km/K_{\rm u}
@@ -1497,10 +1494,10 @@ defined as follows
 where the subscript ``u'' denotes the quantities characterizing the \textbf{u}ndrained solid matrix, while 
 the subscript ``m'' denotes the quantities characterizing the dry \textbf{m}atrix. Thus, 
 $ \lambdau $, $ \Ku $, and $ \mu_{\rm u} $ are the undrained Lam\'e parameter, bulk modulus, and 
-the shear modulus of the undrained matrix, while $ \Km $ is the bulk modulus of the dry matrix. 
-Additionally, $ \Ks $ and $ \Kf $ are the bulk modulus of the grains and fluid, while $ B $ is the 
-so-called Biot parameter and $ \tort $ is the tortuosity. Also, it is implied that the shear 
-modulus of the undrained and dry matrix coincide, $ \muu=\mu_{\rm m} $.
+the shear modulus of the undrained matrix, respectively, while $ \Km $ is the bulk modulus of the dry matrix. 
+Additionally, $ \Ks $ and $ \Kf $ are the bulk moduli of grains and fluid, respectively, while $ B $ is the 
+so-called Biot parameter, and $ \tort $ is the tortuosity. Also, it is implied that the shear 
+modulus of the undrained matrix and that of the dry one coincide, $ \muu=\mu_{\rm m} $.
 
 
 \subsubsection{Characteristic speeds}\label{sec.char.speeds}
@@ -1512,7 +1509,7 @@ variables
 \begin{equation}
 \QQ = (v_1,v_2,v_3,w_1,w_2,w_3,p,s_{11},s_{21},s_{31}).
 \end{equation}
-System \eqref{stress.velocity} can be written in the matrix notations as follows
+System \eqref{stress.velocity} can be written in  matrix form as follows:
 \begin{equation}\label{eqn.1Dfull}
 \QQ_t + \mathbb{A} \QQ_x = \SS,
 \end{equation}
