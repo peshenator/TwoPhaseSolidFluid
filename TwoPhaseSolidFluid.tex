@@ -237,7 +237,7 @@ backref,backrefstyle=none,maxbibnames=99]{biblatex}
 
 % TITLE
 \title{\vspace{-15mm}\fontsize{14pt}{10pt}\bf\selectfont{
-Modeling wavefields in saturated elastic porous medium\\[1mm] based on 
+Modeling wavefields in saturated elastic porous media\\[1mm] based on 
 thermodynamically 
 compatible 
 system theory for\\[1mm] multiphase mixtures}}
@@ -726,7 +726,7 @@ deforming porous media.
 Let the parameter $\alpha_1$ characterize the volume fraction of the liquid component 
 in the solid-fluid mixture, which means that it can be identified with the 
 porosity,
-usually denoted as $ \phi $. Then $\alpha_2=1-\alpha_1$ is the volume fraction 
+usually denoted by $ \phi $. Then $\alpha_2=1-\alpha_1$ is the volume fraction 
 of the solid phase of the porous material. As in Section\,\ref{sec.twophase}, the mixture density  
 $\rho$ is connected 
 with the phase mass densities via $\rho=\alpha_1\rho_1+\alpha_2\rho_2$. 
@@ -1417,7 +1417,7 @@ analysis.
  
 The 3D system of governing equations for small amplitude wave propagation  
 \eqref{stress.velocity} is quite complex, but an informative analysis can be 
-made for 1D plane waves. In this section, we neglect the stress 
+done for 1D plane waves. In this section, we neglect the stress 
 relaxation term in the equation for the shear stress tensor of the SHTC model, as it 
 is absent in  
 Biot's model.
@@ -1781,7 +1781,7 @@ pure solid cases.
 \subsubsection{Dispersion relations and sound speeds}
 
 
-In this section, we will perform a plain wave analysis of the SHTC and Biot 
+In this section, we will perform a plane wave analysis of the SHTC and Biot 
 models. Moreover, we will 
 consider only longitudinal waves. In this case the vector of SHTC state 
 variables reduces to 
@@ -1944,7 +1944,7 @@ $x_{i+1/2}=(i+1/2)\Delta x$, $y_{j+1/2}=(j+1/2)\Delta y$ , where  $\Delta t$,
 $\Delta x$, and $\Delta y$ denote the grid step sizes for the temporal and spatial 
 axes.
 
- For a discrete function $f_{i,j}^{n}=f(t^{n},x_{i},y_{j})$ defined on the grid 
+ For a discrete function $f_{i,j}^{n}=f(t^{n},x_{i},y_{j})$ defined at the grid 
  nodes, let us introduce second-order  centered finite-difference 
  operators:
 \begin{equation}
@@ -2038,12 +2038,12 @@ $$
 \Delta t C_{max}\sqrt{\frac{1}{{\Delta x}^{2}}+\frac{1}{{\Delta y}^{2}}}\leq 1.
 $$
 
-A forcing function $f(t,x,y)$ is introduced as the source term in the right- 
-hand side of the pressure equation or the equations for the normal components 
+A forcing function $f(t,x,y)$ is introduced as the source term in the 
+right- hand side of the pressure equation or the equations for the normal components 
 of 
 the deviatoric stress in system \eqref{stress.velocity}. In both cases, a 
 volumetric-type source term is obtained. Furthermore, the source function is 
-defined as the product of Dirac's delta in space and Ricker's wavelet in time: 
+defined as the product of Dirac's delta function in space and Ricker's wavelet in time: 
 \begin{equation}
 f(t)=(1-2\pi ^{2} f_{0}^{2}(t-t_{0})^{2})exp[-\pi ^{2}f_{0}^{2}(t-t_{0})^{2}],
 \end{equation}
@@ -2166,51 +2166,51 @@ porosity
 parameter $\phi$=0.5.}
 \label{fig:porosity 05 zoom}
 \end{figure}
- The amplitude variation  for different parameters $\phi$ can also be 
- seen in Fig.\,\ref{fig:porosity different}, where the wavefield along the 
- $x$-direction for $y=0$ is presented. 
+ The amplitude variation  for several values of $\phi$ can also be 
+ seen in Fig.\,\ref{fig:porosity different}, where the wavefield distribution along the 
+ $x$-axis for $y=0$ is presented. 
  \begin{figure}[!htbp]
 	\begin{center}
 		\includegraphics[draft=false,width=1.0\textwidth]{Figures/Compare_alfa}
 	\end{center}
-\caption{The wavefield distribution along the $x$-direction and $y=0$  at the 
-time $2.1\cdot10^{-5}s$ of the mixture velocity $v^1$ for different values of 
+\caption{The wavefield distribution along the $x$-axis  at  
+time $2.1\cdot10^{-5}s$ and $y=0$ of the mixture velocity $v^1$ for several values of 
 $\phi$: $\phi=0.2$ (black), $\phi=0.5$ (blue), $\phi=0.8$ 
 (red).}
 \label{fig:porosity different}
 \end{figure}
 
-Summarizing  the numerical experiments from this section, one can conclude that 
-by varying the porosity $\phi$ in system \eqref{stress.velocity}, it is 
-possible to correctly describe three states of the medium: liquid, solid and 
+Summarizing  the results of numerical experiments of this section, we conclude that 
+by varying porosity $\phi$ in system \eqref{stress.velocity}, it is 
+possible to correctly describe the three states of the medium: liquid, solid, and 
 poroelastic.
 
-\subsection{Dependence on the friction $ \theta_2 $.}
+\subsection{Dependence on friction $ \theta_2 $.}
 
 In this section, we study the behavior and properties of the fast and slow 
-P-waves, depending on the parameter $\theta_2$. This parameter is presented as 
-a denominator on the right hand side of the second equation in system 
-\eqref{stress.velocity}. By analogy with the Bio model, $\theta_2$ can be 
-viewed as the friction parameter because it controls the interfacial friction 
-in multiphase medium and leads to the wave dispersion and attenuation.
+P-waves, depending on the parameter $\theta_2$. This parameter is present as 
+the denominator in the right-hand side of the second equation in system 
+\eqref{stress.velocity}. By analogy with Biot's model, $\theta_2$ can be 
+viewed as a friction parameter, because it controls interfacial friction 
+in a multiphase medium and leads to  wave dispersion and attenuation.
 
 Consider the same homogeneous numerical model as in the previous sections with 
 $ \theta_2$ equal to $3.36\cdot10^{-7}$ from Table\,\ref{tab:parameters}. Let 
-us observe the behavior of the  P-waves if we twice increase or twice decrease 
-this parameter. The Fig.\,\ref{fig:compare_friction}(a-c) shows snapshots of 
-the mixture velocity $v^1$ for these three values of $ \theta_2$. It can be 
-observed a significant wave amplitude variations only for slow P-wave. A more 
-detailed variation of the amplitudes can be seen in 
+us observe the behavior of the  P-waves if we increase or decrease 
+this parameter twice. Fig.\,\ref{fig:compare_friction}(a-c) shows snapshots of 
+the mixture velocity $v^1$ for these three values of $ \theta_2$. 
+Significant wave amplitude variations are observed only for slow P-wave. More 
+detailed variations of the amplitudes can be seen in 
 Fig.\,\ref{fig:compare_friction_line}, where the wavefield along the 
-$x$-direction 
-at $y=0$ is presented. The analysis of this graph demonstrates an increase in 
+$x$-axis 
+at $y=0$ is presented. This figure demonstrates an increase in 
 the 
-amplitude of  the slow P-wave with the increase $\theta_2$ 
-and vice versa. We also observe a change in the waveform of slow waves, while 
+amplitude of  the slow P-wave with increasing $\theta_2$, 
+and vice versa. A change in the form of slow waves is also observed, while 
 the fast wave remains almost unchanged.
 
-Summarizing  the numerical experiments from this section, one can conclude, 
-that by varying the parameter $\theta_2$ in system \eqref{stress.velocity}, it 
+Summarizing  the results of numerical experiments of this section, we conclude 
+that by varying the parameter $\theta_2$ in system \eqref{stress.velocity} it 
 is possible to affect the amplitude and  propagation velocity of the slow 
 P-wave. One of the interesting applications, in our opinion, can be the 
 solution of the inverse problem of determining the coefficient $\theta_2$ by 
@@ -2232,45 +2232,45 @@ experiment.
 \includegraphics[draft=false,width=1\textwidth]{Figures/Xi_31_new}
 \caption{$ \quad\quad \theta_2=1/2\cdot3.36\cdot10^{-7} $}
 \end{subfigure}%
-\caption{Snapshots at time $2.1\cdot10^{-5}s$ of the mixture velocity $v^1$ for different values of $ \theta_2 $.}
+\caption{Snapshots at time $2.1\cdot10^{-5}s$ of the mixture velocity $v^1$ for several values of $ \theta_2 $.}
 \label{fig:compare_friction}
 \end{figure}
 \begin{figure}[!htbp]
 	\begin{center}
 		\includegraphics[draft=false,width=1.0\textwidth]{Figures/Compare_Xi_1}
 	\end{center}
-	\caption{A comparison at time $2.1\cdot10^{-5}$ s of the mixture velocity 
-	$v^1$ for different values of $ \theta_2 $: $ \theta_2 
+	\caption{A comparison at time $2.1\cdot10^{-5}$ s of values of the mixture velocity 
+	$v^1$ for several values of $ \theta_2 $: $ \theta_2 
 	=3.36\cdot10^{-7}$ (blue), $ \theta_2=2 \cdot 3.36\cdot10^{-7} $ (red), $ 
 	\theta_2=1/2 \cdot 3.36\cdot10^{-7} $ (black).}
 	\label{fig:compare_friction_line}
 \end{figure}
 
-\subsection{Dependence on the frequency $f_{0}$.}\label{sec.frequency}
+\subsection{Dependence on frequency $f_{0}$.}\label{sec.frequency}
 
-In this section, we study the dispersion of the wave velocity depending on the 
+In this section, we perform a study of dispersion of the wave velocity depending on the 
 source 
-peak frequency $f_{0}$  based on of the same homogeneous numerical model 
+peak frequency $f_{0}$  based on the same homogeneous numerical model 
 with 
 parameters from Table \ref{tab:parameters} as in the previous sections. 
-The dispersion curves in Fig.\,\ref{fig:diff.grain.modulus} show the main 
-velocity changes in the range of $10^{4}-10^{6}$ Hz. Because of a difference in 
-three order of magnitude in the frequency range, the comparison will be done 
+The dispersion curves in Fig.\,\ref{fig:diff.grain.modulus} show that the main 
+velocity changes are in the range of $10^{4}-10^{6}$ Hz. Because of a difference of 
+three orders of magnitude in the frequency range, our comparison will be made 
 not 
-within the framework of one computational domain but for three different 
-domains. Thus, we use the 10 orders of magnitude scaling of the both space and 
+for a single computational domain, but for three different 
+domains. More specifically, we use a ten orders of magnitude scaling of  both space and 
 time. Fig.\,\ref{fig:compare_frewuency} presents 
-snapshots and Fig.\,\ref{fig:compare_frewuency_trace} presents seismograms of 
-the mixture velocity $v^1$ for different frequencies. For each time frequency, 
-a snapshot is recorded at the time $5/{f_{0}}$ (including the shift wavelet 
-delay $1/{f_{0}}$) for the square domains with the side of $ 5 $ m (for 
+snapshots, and Fig.\,\ref{fig:compare_frewuency_trace} presents seismograms of 
+the mixture velocity $v^1$ for several frequencies. For each time frequency, 
+a snapshot is recorded at time $5/{f_{0}}$ (including a shift wavelet 
+delay of $1/{f_{0}}$) for square domains with a side of $ 5 $ m (for 
 $f_{0}=10^{4}$), $0.5$  m (for 
-$f_{0}=10^{5}$) and $0.05$  m (for $f_{0}=10^{6}$). The time 
+$f_{0}=10^{5}$), and $0.05$  m (for $f_{0}=10^{6}$). The time 
 and size are chosen in such a way that in the isotropic elastic case 
-we can obtain three identical snapshots. As it is expected for the poroelastic 
+we can obtain three identical snapshots. As expected in the poroelastic 
 case, 
 we 
-observe wavefield differences which are most clearly seen in seismograms: the 
+observe wavefield differences which are most clearly seen in the seismograms: the 
 lower the frequency, the stronger the dispersion and attenuation of the slow 
 P-wave. 
 %To estimate the phase velocity and attenuation of a slow wave, we use 
@@ -2280,14 +2280,14 @@ P-wave.
 %phase velocity $v_{p}=420 $ m/s for the frequency $f_{0}=10^{5}$ Hz and $Q=10$, 
 %the phase velocity $v_{p}=670 $ m/s  for the frequency $f_{0}=10^{6}$ Hz. 
 To estimate the phase velocity, we use 
-the spectral ratio technique 
+a spectral ratio technique 
 \cite{Gurevich2015}, \cite{Caspari2019}
-and obtain the 
-phase velocity $v_{p}=420 $ m/s for the frequency $f_{0}=10^{5}$ Hz and
+and obtain a 
+phase velocity $v_{p}=420 $ m/s for a frequency $f_{0}=10^{5}$ Hz and
 $v_{p}=670 $ m/s  for the frequency $f_{0}=10^{6}$ Hz. 
 It is not possible to make 
-similar estimation for the frequency $f_{0}=10^{4}$ due to a low amplitude of slow wave. We 
-can conclude that the attenuation of a slow P-wave is sufficiently strong even 
+similar estimation for a frequency $f_{0}=10^{4}$ due to the fact that the slow wave has a low amplitude. We 
+can conclude that the attenuation of the slow P-wave is sufficiently strong even 
 for high frequencies.
 \begin{figure}[!htbp]
 \begin{subfigure}{0.3\linewidth}
@@ -2304,8 +2304,8 @@ for high frequencies.
 \includegraphics[draft=false,width=1\textwidth]{Figures/frec_big_10_6}
 \caption{$\quad\quad f_0=10^{6} $}
 \end{subfigure}%
-\caption{  Snapshots of the mixture velocity $v^1$ for different frequencies: 
-$f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz (c) .  }
+\caption{  Snapshots of the mixture velocity $v^1$ for several frequencies: 
+$f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz (c).  }
 \label{fig:compare_frewuency}
 \end{figure}
 
@@ -2327,96 +2327,96 @@ height=0.15\textheight]{Figures/frec_10_5_new2}
 height=0.15\textheight]{Figures/frec_10_6_new2}
 \caption{$\quad\quad f_0=10^{6} $}
 \end{subfigure}%
-\caption{ A seismograms of the mixture velocity $v^1$ for different frequencies: $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz(c) .  }
+\caption{ Seismograms of the mixture velocity $v^1$ for several frequencies: $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz(c).  }
 \label{fig:compare_frewuency_trace}
 \end{figure}
 
 %PS Reference: (Gurevich and Pevzner 2015, Appendix B: in Caspari et al, 2019. %Reference: Gurevich B. and Pevzner R. 2015. How frequency dependency of Q affects %spectral ratio estimates. Geophysics 80, A39–A44.; Caspari E., Novikov M., Lisita V., %Barbosa N. D., Quintal B., Rubino J. G., Holliger K., 2019, Attenuation mechanisms in %fractured fluid-saturated porous rocks: a numerical modelling study, Geophysical %Prospecting, 67, 935–955, doi: 10.1111/1365-2478.12667).
 
-\subsection{Dependence on the shear relaxation time.}
+\subsection{Dependence on shear relaxation time.}
 
 
 The aim of this section is to show that there is an additional mechanism of 
 energy dissipation embedded in system \eqref{stress.velocity} and controlled 
-by the relaxation parameter $\tau$ on the right-hand side of equation
+by the relaxation parameter $\tau$ in the right-hand side of equation
 \eqref{sij}. A proper choice of the relaxation time $ \tau $ allows one to 
 model 
 irreversible (elastoplastic) deformations in the solid matrix, e.g. 
 \cite{HYP2016,Hyper-Hypo2019}, or viscous flows \cite{DPRZ2016}.
 
-All the previous numerical examples were done without relaxation of tangential 
-shear stresses, that is, the right-hand side in \eqref{sij} vanishes. Formally, 
-this corresponds to the case of $\tau=\infty$. It is quite obvious that for 
+All previous numerical examples were calculated without relaxation of tangential 
+shear stresses, that is, the right-hand side in \eqref{sij} vanished. Formally, 
+this corresponds to the case of $\tau=\infty$. It is quite obvious that, for 
 finite values of
-$ \tau $, the mechanism of tangential stresses relaxation provides 
-another ability of the model to 
-control the wave attenuation. To this end, we again 
-consider an 
-example from the previous Section\,\ref{sec.frequency} for the frequency 
+$ \tau $, the mechanism of relaxation of tangential stresses  provides 
+an additional ability of the model to 
+control wave attenuation. To this end, we again 
+consider the
+example from the previous Section\,\ref{sec.frequency} for a frequency 
 $f_0=10^{4}$ Hz and compare 
-the solution with a similar test but with allowance for the relaxation of 
+the solution with a similar test, but with allowance for  relaxation of 
 tangential stresses.
 \begin{figure}[!htbp]
 	\begin{center}
 \includegraphics[draft=false,width=0.75\textwidth]{Figures/Compare_dissip_10_4}
 	\end{center}
 	\caption{{\footnotesize \it  
-	Comparison of the seismograms of the mixture velocity $v^1$  for different 
+	Comparison of seismograms of the mixture velocity $v^1$  for several 
 	values of $\tau$:
 	no dissipation - black, $\tau=10^{-5}$ - red, $\tau=10^{-4}$ - blue.}}
 	\label{fig: Compare_dissip}
 \end{figure}
-As one would expect, a comparison of the seismograms in Fig.\,\ref{fig: Compare_dissip} shows that the relaxation of tangential stresses leads to the dispersion and attenuation of seismic waves. On the receivers that are far away, it is seen that the smaller $\tau$, the greater the attenuation. On the near receivers, the dispersion probably gives the predominant effect.
+As expected, a comparison of the seismograms in Fig.\,\ref{fig: Compare_dissip} shows that relaxation of tangential stresses leads to dispersion and attenuation of seismic waves. On the distant receivers, it is seen that the smaller $\tau$, the greater the attenuation. On the nearer receivers, dispersion probably has a predominant effect.
 
 
 \subsection{Layered media.}
 
-This test illustrates the interface effects between a pure fluid, poroelastic 
+This test illustrates the effects of the interfaces  between pure fluid, poroelastic 
 and 
-pure elastic media on the example of a three-layered medium with the material 
+pure elastic media by the example of a three-layered medium with the material 
 parameters from Table 
 \ref{tab:parameters}. The size of the computational domain is $0.025$\,m in the 
-$ x $ and $ y $ directions. The upper layer is water, the lower layer is the
+$ x $ and $ y $ directions. The upper layer is water, the lower layer is an
 elastic 
 medium and in the middle, from $-0.005$ m to $0.005$ m, there is a poroelastic 
-layer with porosity $\phi$=0.2. The source of central frequency $f_0=10^{6}$ Hz 
-is located in the water at the point $x=0, y=-0.01$. 
+layer with porosity $\phi$=0.2. A source of central frequency $f_0=10^{6}$ Hz 
+is located in the water layer at the point $x=0, y=-0.01$. 
 
-In order to present all types of waves let us consider snapshots  for the total 
+In order to present all types of waves, let us consider snapshots of the total 
 velocity vector  for different moments of time. We strongly amplified the 
 wavefield amplitude in Fig.\,\ref{fig: layered_snap} to be able to pick out the 
-slow compressional waves on the snaps. In order to interpret the waves arising 
-in the medium, we use capital 'P' to mark P-waves  and capital 'S' to 
+slow compressional waves in the snapshots. In order to interpret the waves arising 
+in the medium, we use  'P' to mark P-waves  and  'S' to 
 mark S-waves. The subscript 'r'  indicates the reflected waves, while 
-subscript 't'  indicates the transmitted waves. Also, we use the 
-subscript 's' to identify a slow P-wave and subscript 'f' to identify the 
+the subscript 't'  indicates the transmitted waves. Also, we use the 
+subscript 's' to identify a slow P-wave and the subscript 'f' to identify a 
 pressure wave in the fluid layer.
 
-A source in the water excites a pressure wave (denoted as P$_\textrm{f}$ in 
+The source in the water layer excites a pressure wave ( denoted by P$_\textrm{f}$ in 
 Fig.\,\ref{fig: 
-layered_snap}) which propagates towards the a poroelastic layer.
+layered_snap}) which propagates towards the poroelastic layer.
 This wave then reflects from the bottom of the water-poroelastic interface 
 (P$_\textrm f$P$_\textrm r$) and generates a fast transmitted P-wave 
-(P$_\textrm f$P$_\textrm t$),  slow 
-transmitted P-wave (P$_\textrm f$P$_\textrm s$) and transmitted 
+(P$_\textrm f$P$_\textrm t$), a slow 
+transmitted P-wave (P$_\textrm f$P$_\textrm s$), and a transmitted 
 S-wave (P$_\textrm f$S$_\textrm t$) in the  poroelastic medium. Afterwards, 
-these waves generate the 
-family of transmitted and reflect waves (including transmitted P-wave 
-(P$_\textrm f$P$_\textrm t$P$_\textrm t$) and S-wave 
-(P$_\textrm f$S$_\textrm t$S$_\textrm t$) and 
+these waves generate a 
+family of transmitted and reflected waves (including a transmitted P-wave 
+(P$_\textrm f$P$_\textrm t$P$_\textrm t$), an S-wave 
+(P$_\textrm f$S$_\textrm t$S$_\textrm t$), and a
 reflected slow P-wave (P$_\textrm f$P$_\textrm t$P$_\textrm s$)) from the  
 upper and lower boundaries of 
 the poroelastic layer. 
 
-In this example, we see the correct propagation of all types of waves, 
-predicted by elasticity and poroelasticity theories: the slow waves arise only 
-in poroelastic layer, only pressure wave propagate in a liquid, while the  
+In this example we see that the propagation of all types of waves 
+predicted by the elasticity and poroelasticity theories is correct: slow waves arise only 
+in the poroelastic layer, only pressure waves propagate in the liquid layer, while  
 longitudinal and shear waves appear in the elastic medium.
 \begin{figure}[!htbp]
 	\begin{center}
 	\includegraphics[draft=false,width=0.8\textwidth]{Figures/Layered_media_u1_u2_v4}
 	\end{center}
-	\caption{{\footnotesize \it  Snapshots of $ ||v||^2 $ for the layered medium: water (upper 
+	\caption{{\footnotesize \it  Snapshots of $ ||v||^2 $ for a layered medium: water (upper 
 	layer, $ \phi=1 $), poroelastic (middle layer,  $ \phi=0.2 $) and elastic 
 	solid  (bottom layer, $ \phi=0 $).}}
 	\label{fig: layered_snap}
@@ -2429,33 +2429,33 @@ An extension of the unified model of continuum fluid and solid mechanics
 \cite{DPRZ2016} for compressible fluid flows in elastoplastic porous media has 
 been proposed.
 The derivation  is based on the Symmetric Hyperbolic 
-Thermodynamically Compatible (SHTC) theory \cite{SHTC-GENERIC-CMAT} and the 
-resulting model represents the coupling of the unified continuum model from 
+Thermodynamically Compatible (SHTC) theory \cite{SHTC-GENERIC-CMAT}, and the 
+resulting model represents a combination of the unified continuum model from 
 \cite{DPRZ2016} with the SHTC model for two-phase compressible flows from 
 \cite{RomDrikToro2010}.
-The governing equations satisfy the two laws of thermodynamics (energy 
-conservation and non-decreasing of the entropy) and form first-order symmetric  
-system, 
+The governing equations satisfy two laws of thermodynamics (energy 
+conservation and non-decreasing of  entropy) and form a first-order symmetric  
+system 
 which 
-is hyperbolic in the sense of Friedrichs \cite{Friedrichs1958}, if the 
+is hyperbolic in the sense of Friedrichs \cite{Friedrichs1958} if the 
 generating thermodynamic potential is convex.
 
-Based on the proposed non-linear model, the lineraised first order PDE system 
+Based on the above-proposed non-linear model, a linearized first order PDE system 
 for small amplitude wave propagation in a stationary saturated porous medium 
 has been derived. The linear system is written in terms of the velocity of the 
-solid-fluid mixture, relative velocity of the phase motion, pressure and shear 
-stress. Such a formulation allowed us a straightforward development of the 
-efficient finite-difference scheme on staggered grid.  
+solid-fluid mixture, and the relative velocity of the phase motion, pressure and shear 
+stress. Such a formulation allowed us a straightforward development of an 
+efficient finite-difference scheme on a staggered grid.  
 
-The comparison of the proposed SHTC model and classical Biot's model for wave 
-propagation in the saturated elastic porous  medium has been done.
-It turns out that although the basic equations of the two models are different, 
+A comparison of the above-proposed SHTC model and the classical Biot model for wave 
+propagation in a saturated elastic porous  medium has been made.
+It turns out that, although the basic equations of the two models are different, 
 the SHTC model is able to describe all the effects (in particular, the 
-existence of slow P-wave) predicted by Biot's theory, with good quantitative 
+existence of a slow P-wave) predicted by Biot's theory, in good quantitative 
 and qualitative agreement.
 
-A series of test problems solved for SHTC model for different values of 
-parameters of the model, including porosity and interfacial friction, has been 
+A series of test problems for the SHTC model with several values of 
+the parameters of the model, including porosity and interfacial friction, has been 
 solved. The numerical results demonstrate that the SHTC model describes 
 correctly all physical characteristics of the process.   
 
@@ -2465,7 +2465,7 @@ The research of E.R. and G.R. in Sects.2-4 was supported by the Russian Science 
 I.P. gratefully acknowledges the support of Agence Nationale de la Recherche (FR) 
 (grant ANR-11-LABX-0040-CIMI) under program ANR-11-IDEX-0002-02.
 The work of M.D. was partially supported by the European Union's Horizon 2020 Research and Innovation  Programme under project \textit{ExaHyPE}. 
-MD also gratefully acknowledges funding from the Italian Ministry of Education, University and Research (MIUR) under the Departments of Excellence Initiative 2018--2022 attributed to DICAM of the University of Trento, as well as financial support from the University of Trento under the  \textit{Strategic Initiative Modeling and Simulation}.
+M.D. also gratefully acknowledges funding from the Italian Ministry of Education, University and Research (MIUR) under the Departments of Excellence Initiative 2018--2022 attributed to DICAM of the University of Trento, as well as financial support from the University of Trento under the  \textit{Strategic Initiative Modeling and Simulation}.
 
 
 
