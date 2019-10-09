@@ -32,27 +32,32 @@
 \newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
 T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
+% NATBIB options:
+
+\usepackage[numbers]{natbib}
+
+% END NATBIB options.
 
 % BIBLATEX options:
-\usepackage[backend=bibtex,giveninits=true,sorting=nyt,url=false,doi=true,eprint=false,isbn=false,
-backref,backrefstyle=none,maxbibnames=99]{biblatex}
-\DefineBibliographyStrings{english}{%
-  backrefpage = {Cited on p\adddot},%
-  backrefpages = {Cited on pp\adddot}%
-}
-
-\bibliography{library}
-% \bibliography{/home/utilisateur/Dropbox/library}
-%\bibliography{/home_pers/peshkov/Dropbox/library}
-
-\renewcommand*{\bibfont}{\footnotesize}
-
-% in order to suppress 'In:'
-\renewbibmacro{in:}{%
-  \ifboolexpr{%
-     test {\ifentrytype{article}}%
-  }{}{\printtext{\bibstring{in}\intitlepunct}}%
-}
+%\usepackage[backend=bibtex,giveninits=true,sorting=nyt,url=false,doi=true,eprint=false,isbn=false,
+%backref,backrefstyle=none,maxbibnames=99]{biblatex}
+%\DefineBibliographyStrings{english}{%
+%  backrefpage = {Cited on p\adddot},%
+%  backrefpages = {Cited on pp\adddot}%
+%}
+%
+%\bibliography{TwoPhaseSolidFluid}
+%% \bibliography{/home/utilisateur/Dropbox/library}
+%%\bibliography{/home_pers/peshkov/Dropbox/library}
+%
+%\renewcommand*{\bibfont}{\footnotesize}
+%
+%% in order to suppress 'In:'
+%\renewbibmacro{in:}{%
+%  \ifboolexpr{%
+%     test {\ifentrytype{article}}%
+%  }{}{\printtext{\bibstring{in}\intitlepunct}}%
+%}
 % END BIBLATEX options.
 
 
@@ -321,7 +326,7 @@ can be used for studying general compressible fluid flows in a deformable
 elastoplastic 
 porous medium, and for modeling wave propagation in a saturated 
 porous medium. 
-Governing equations for small amplitude wave propagation in a uniform 
+Governing equations for small-amplitude wave propagation in a uniform 
 porous medium saturated 
 with a single fluid are derived. They form a first-order hyperbolic PDE system 
 written in 
@@ -445,14 +450,14 @@ two-phase compressible fluid model. By combining the above two
 models, a governing master SHTC system for a two-phase solid-fluid medium is 
 formulated.
 In Section\,\ref{sec.linear}, using this model governing 
-equations are derived for small amplitude wave propagation in a stationary 
+equations are derived for small-amplitude wave propagation in a stationary 
 saturated porous medium. 
 In Section \ref{Comparison} we
 discuss the differences and similarities between the Biot and SHTC models.
 In Section\,\ref{sec.waves}, we derive a dispersion 
 relation for the thus obtained acoustic equations and study the properties of the wavefields. 
 In Section\,\ref{sec.numerics}, an efficient finite difference method for 
-small amplitude wave propagation is presented and some numerical results are 
+small-amplitude wave propagation is presented and some numerical results are 
 discussed.         
 
 
@@ -896,10 +901,10 @@ total mass conservation law
 \eqref{eqn.contiMS} is replaced by the mass conservation law for the second phase 
 \eqref{eqn.contiPV2}.
  
-\section{System of governing PDEs for small amplitude wave propagation in  
+\section{System of governing PDEs for small-amplitude wave propagation in  
 saturated porous media}\label{sec.linear}
 
-In this section, we derive equations for small amplitude wave 
+In this section, we derive equations for small-amplitude wave 
 propagation in a saturated porous medium at equilibrium. For the 
 derivation, we first transform equations \eqref{eqn.PV} to a more convenient form. 
 Instead of the total momentum equation 
@@ -1095,7 +1100,7 @@ x_i} \right) =
   \end{eqnarray}
 \end{subequations}
 
-These equations form a basis for our study of small amplitude waves in
+These equations form a basis for our study of small-amplitude waves in
 a porous saturated medium at rest. 
 
 Furthermore, we will impose a condition that will help further simplify the PDE 
@@ -1447,7 +1452,7 @@ analysis.
 \subsection{Analysis of wavefields in saturated porous 
  	media}\label{sec.waves}
  
-The 3D system of governing equations for small amplitude wave propagation  
+The 3D system of governing equations for small-amplitude wave propagation  
 \eqref{stress.velocity} is quite complex, but an informative analysis can be 
 done for 1D plane waves. In this section, we neglect the stress 
 relaxation term in the equation for the shear stress tensor of the SHTC model, as it 
@@ -1460,7 +1465,7 @@ Biot's model.
 %We will see that the reduced model of processes in the stationary saturated 
 %porous medium predicts all features of the wavefields as is in the Biot 
 %model.   The linearized SHTC system \eqref{stress.velocity} derived in Section 
-%3 for the description of small amplitude wave propagation consists of the 
+%3 for the description of small-amplitude wave propagation consists of the 
 %phase 
 %momentum equations and equations for the dynamics of shear stress and 
 %pressure: 
@@ -1680,7 +1685,7 @@ in Biot's model.
 	\begin{center}
 %		\begin{tabular}{ccc}
 		\includegraphics[draft=false,trim=0 -5 0 0,clip, 
-		scale=0.75]{Figures/Characteristics}
+		scale=0.75]{Characteristics}
 %		&
 %		\includegraphics[draft=false,trim=0 40 0 20,clip, 
 %		scale=0.42]{Figures/Biot_SHTC_phi_0_2_diff_grain_modulus}
@@ -1929,7 +1934,7 @@ frequency region, see Fig.\,\ref{fig:Vph.Attenuation}, the second row.
 \begin{figure}[t]
 	\begin{center}
 			\includegraphics[draft=false,trim=0 0 0 0,clip, 
-			scale=0.42]{Figures/Vph-AttenuationLog}
+			scale=0.42]{Vph-AttenuationLog}
 		\caption{Phase velocities (first row) and attenuation factors per 
 			wavelength (second row) for the fast (first column) and slow 
 			(second column) modes of the SHTC and Biot models. The material 
@@ -1958,7 +1963,7 @@ frequency region, see Fig.\,\ref{fig:Vph.Attenuation}, the second row.
 %\end{figure}
 
 
-\section{Numerical test problems for small amplitude wave 
+\section{Numerical test problems for small-amplitude wave 
 propagation}\label{sec.numerics}
 
 \subsection{Finite difference implementation}
@@ -2119,12 +2124,12 @@ the source point towards the boundary with a uniform
 spacing between the receivers.
 \begin{figure}[!htbp]
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.7\textwidth]{Figures/wave_alfa_s_1}
+\includegraphics[draft=false,width=0.7\textwidth]{wave_alfa_s_1}
 \caption{}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.8\textwidth]{Figures/alfa_s_1}
+\includegraphics[draft=false,width=0.8\textwidth]{alfa_s_1}
 \caption{}
 \end{subfigure}%
 \caption{A snapshot at time $T_{0}$ (a) and seismogram (b) of the mixture 
@@ -2141,12 +2146,12 @@ propagation velocity can be easily estimated from the computed seismogram in
 Fig.\,\ref{fig:porosity 1}(b) to be exactly 1500 m/s.
 \begin{figure}[!htbp]
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.7\textwidth]{Figures/wave_alfa_s_00}
+\includegraphics[draft=false,width=0.7\textwidth]{wave_alfa_s_00}
 \caption{}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.8\textwidth]{Figures/alfa_s_00}
+\includegraphics[draft=false,width=0.8\textwidth]{alfa_s_00}
 \caption{}
 \end{subfigure}%
 \caption{A snapshot at time $T_{0}$ (a) and seismogram (b) of the mixture 
@@ -2169,12 +2174,12 @@ zoom in the image, we will be able to see this slow P-wave in
 Fig.\,\ref{fig:porosity 05 zoom}.
 \begin{figure}%[!htbp]
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.7\textwidth]{Figures/wave_alfa_s_05}
+\includegraphics[draft=false,width=0.7\textwidth]{wave_alfa_s_05}
 \caption{}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.8\textwidth]{Figures/alfa_s_05}
+\includegraphics[draft=false,width=0.8\textwidth]{alfa_s_05}
 \caption{}
 \end{subfigure}%
 \caption{A snapshot at time $T_{0}$ (a) and seismogram (b) of the mixture 
@@ -2185,12 +2190,12 @@ parameter $\phi$=0.5.}
 \end{figure}
 \begin{figure}%[!htbp]
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=1.2\textwidth]{Figures/wave_alfa_s_05_zoom1}
+\includegraphics[draft=false,width=1.2\textwidth]{wave_alfa_s_05_zoom1}
 \caption{}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.5\linewidth}
-\includegraphics[draft=false,width=0.8\textwidth]{Figures/alfa_s_05_zoom}
+\includegraphics[draft=false,width=0.8\textwidth]{alfa_s_05_zoom}
 \caption{}
 \end{subfigure}%
 \caption{A zoom of snapshot at time $1\cdot10^{-5}s$  (a) and seismogram (b) of the mixture 
@@ -2204,7 +2209,7 @@ parameter $\phi$=0.5.}
  $x$-axis for $y=0$ is presented. 
  \begin{figure}[!htbp]
 	\begin{center}
-		\includegraphics[draft=false,width=1.0\textwidth]{Figures/Compare_alfa}
+		\includegraphics[draft=false,width=1.0\textwidth]{Compare_alfa}
 	\end{center}
 \caption{The wavefield distribution along the $x$-axis  at  
 time $2.1\cdot10^{-5}s$ and $y=0$ of the mixture velocity $v^1$ for several values of 
@@ -2252,17 +2257,17 @@ experiment.
 \begin{figure}[!htbp]
 \begin{subfigure}{0.3\linewidth}
 \centering
-\includegraphics[draft=false,width=1\textwidth]{Figures/Xi_11_new}
+\includegraphics[draft=false,width=1\textwidth]{Xi_11_new}
 \caption{$ \quad\quad \theta_2=3.36\cdot10^{-7} $}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\linewidth}
-\includegraphics[draft=false,width=1\textwidth]{Figures/Xi_21_new}
+\includegraphics[draft=false,width=1\textwidth]{Xi_21_new}
 \caption{$ \quad\quad \theta_2=2\cdot3.36\cdot10^{-7} $}
 \end{subfigure}%
 \hfill
 \begin{subfigure}{0.3\linewidth}
-\includegraphics[draft=false,width=1\textwidth]{Figures/Xi_31_new}
+\includegraphics[draft=false,width=1\textwidth]{Xi_31_new}
 \caption{$ \quad\quad \theta_2=1/2\cdot3.36\cdot10^{-7} $}
 \end{subfigure}%
 \caption{Snapshots at time $2.1\cdot10^{-5}s$ of the mixture velocity $v^1$ for several values of $ \theta_2 $.}
@@ -2270,7 +2275,7 @@ experiment.
 \end{figure}
 \begin{figure}[!htbp]
 	\begin{center}
-		\includegraphics[draft=false,width=1.0\textwidth]{Figures/Compare_Xi_1}
+		\includegraphics[draft=false,width=1.0\textwidth]{Compare_Xi_1}
 	\end{center}
 	\caption{A comparison at time $2.1\cdot10^{-5}$ s of values of the mixture velocity 
 	$v^1$ for several values of $ \theta_2 $: $ \theta_2 
@@ -2324,17 +2329,17 @@ can also conclude that the attenuation of the slow P-wave is sufficiently strong
 for high frequencies.
 \begin{figure}[!htbp]
 \begin{subfigure}{0.3\linewidth}
-\includegraphics[draft=false,width=1\textwidth]{Figures/frec_big_10_4}
+\includegraphics[draft=false,width=1\textwidth]{frec_big_10_4}
 \caption{$\quad\quad f_0=10^{4} $}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\linewidth}
-\includegraphics[draft=false,width=1\textwidth]{Figures/frec_big_10_5}
+\includegraphics[draft=false,width=1\textwidth]{frec_big_10_5}
 \caption{$\quad\quad f_0=10^{5} $}
 \end{subfigure}%
 \hfill
 \begin{subfigure}{0.3\linewidth}
-\includegraphics[draft=false,width=1\textwidth]{Figures/frec_big_10_6}
+\includegraphics[draft=false,width=1\textwidth]{frec_big_10_6}
 \caption{$\quad\quad f_0=10^{6} $}
 \end{subfigure}%
 \caption{  Snapshots of the mixture velocity $v^1$ for several frequencies: 
@@ -2345,19 +2350,19 @@ $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz (c).  }
 \begin{figure}[!htbp]
 \begin{subfigure}{0.3\linewidth}
 \includegraphics[draft=false,width=1\textwidth, 
-height=0.15\textheight]{Figures/frec_10_4_new2}
+height=0.15\textheight]{frec_10_4_new2}
 \caption{$\quad\quad f_0=10^{4} $}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\linewidth}
 \includegraphics[draft=false,width=1\textwidth, 
-height=0.15\textheight]{Figures/frec_10_5_new2}
+height=0.15\textheight]{frec_10_5_new2}
 \caption{$\quad\quad f_0=10^{5} $}
 \end{subfigure}%
 \hfill
 \begin{subfigure}{0.3\linewidth}
 \includegraphics[draft=false,width=1\textwidth, 
-height=0.15\textheight]{Figures/frec_10_6_new2}
+height=0.15\textheight]{frec_10_6_new2}
 \caption{$\quad\quad f_0=10^{6} $}
 \end{subfigure}%
 \caption{ Seismograms of the mixture velocity $v^1$ for several frequencies: $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz(c).  }
@@ -2391,7 +2396,7 @@ the solution with a similar test, but with allowance for  relaxation of
 tangential stresses.
 \begin{figure}[t]
 	\begin{center}
-\includegraphics[draft=false,width=0.7\textwidth]{Figures/Compare_dissip_10_4}
+\includegraphics[draft=false,width=0.7\textwidth]{Compare_dissip_10_4}
 	\end{center}
 	\caption{{\footnotesize \it  
 	Comparison of seismograms of the mixture velocity $v^1$  for several 
@@ -2447,7 +2452,7 @@ in the poroelastic layer, only pressure waves propagate in the liquid layer, whi
 longitudinal and shear waves appear in the elastic medium.
 \begin{figure}[t]%[!htbp]
 	\begin{center}
-	\includegraphics[draft=false,width=0.8\textwidth]{Figures/Layered_media_u1_u2_v4}
+	\includegraphics[draft=false,width=0.8\textwidth]{Layered_media_u1_u2_v4}
 	\end{center}
 	\caption{{\footnotesize \it  Snapshots of $ ||v||^2 $ for a layered medium: water (upper 
 	layer, $ \phi=1 $), poroelastic (middle layer,  $ \phi=0.2 $) and elastic 
@@ -2474,7 +2479,7 @@ is hyperbolic in the sense of Friedrichs \cite{Friedrichs1958} if the
 generating thermodynamic potential is convex.
 
 Based on the above-proposed non-linear model, a linearized first order PDE system 
-for small amplitude wave propagation in a stationary saturated porous medium 
+for small-amplitude wave propagation in a stationary saturated porous medium 
 has been derived. The linear system is written in terms of the velocity of the 
 solid-fluid mixture, and the relative velocity of the phase motion, pressure and shear 
 stress. Such a formulation allowed us a straightforward development of an 
@@ -2505,7 +2510,10 @@ M.D. also gratefully acknowledges funding from the Italian Ministry of Education
 
 
 
-\printbibliography
+%\printbibliography
+\bibliographystyle{plainurl}
+\bibliography{library}
+
 
 
 
@@ -2513,116 +2521,3 @@ M.D. also gratefully acknowledges funding from the Italian Ministry of Education
 
 
 \end{document}
-%	
-%	\bibitem{Ishii1975}
-%	Ishii M. \emph{Thermo-fluid dynamic theory of two-phase flow}. Eyrolles, Paris, 1975.
-%	
-%	\bibitem{Stewart1984} 
-%	Stewart BH, Wendroff B. Two-phase flow: models and methods. \emph{J. Comp. Phys.} 1984; 
-%\textbf{56}:363.
-%	
-%	\bibitem{Staedke2005}
-%	Staedke H, Francello G, et al. Advanced three-dimensional flow simulation tools for application 
-%to reactor safety (ASTAR).
-%	\emph{Nuclear Engineering and Design} 2005; \textbf{235}:379.
-%	
-%	\bibitem{Baer1986}
-%	Baer M, Nunziato J. A two-phase mixture theory for the deflagration-to-detonation transition 
-%(DDT) in reactive granular materials.
-%	\emph{Int. J. Multiphase Flow} 1986; \textbf{12}:861.
-%	
-%	\bibitem{Saurel1999}
-%	Saurel R, Abgrall R. A multiphase Godunov method for compressible multi-fluid and multiphase 
-%flows.
-%	\emph{J. Comput. Phys.} 1999; \textbf{150}:425.
-%	
-%	\bibitem{LeMetayer2005}
-%	Le~Metayer O, Massoni J, Saurel R. Modelling evaporation fronts with reactive Riemann solvers. 
-%\emph{J. Comput. Phys.} 2005; \textbf{205}:567.https://www.overleaf.com/5968336422cdvbzvsbmgxd
-%	
-%	\bibitem{Kreeft&Koren2010}
-%	Kreeft JJ, Koren B. A new formulation of Kapila's
-%	five-equation model for compressible two-fluid flow, and its
-%	numerical treatment, {\it J. Comput. Phys.} 2010, \textbf{229}:6220.
-%	
-%	\bibitem{Zein2010}
-%	Zein A, Hantke M, Warnecke G. Modeling phase transition for
-%	compressible two-phase flows applied to metastable liquids,
-%	\emph{J. Comput. Phys.} 2010; \textbf{229}:2964.
-%	
-%	\bibitem{Herard2007}
-%	Herard JM. A Three-Phase Flow Model. \emph{Math. Comput.
-%		Modelling} 2007; \textbf{45}:732.
-%	
-%	\bibitem{Abgrall}
-%	
-%	Abgrall R, Saurel R. Discrete equations for physical and numerical compressible
-%	multiphase mixtures. {\it J. Comput. Phys.} 2003, \textbf{186}:361.
-%	
-%	\bibitem{Romenski2001}
-%	Romensky E. Thermodynamics and hyperbolic systems of balance
-%	laws in continuum mechanics. In \emph{Godunov Methods: theory
-%		and applications}, Toro EF. (ed). Kluwer Academic/Plenum
-%	Publishers, NY, 2001.
-%	
-%	\bibitem{Godunov2003}
-%	Godunov SK, Romenski E. \emph{Elements of continuum mechanics and conservation laws}, Kluwer 
-%Academic/Plenum Publishers, NY, 2003.
-%	
-%	\bibitem{Muller1998}
-%	Muller I, Ruggeri T. \emph{Rational extended thermodynamics}, Springer-Verlag, NY, 1998.
-%	
-%	
-%	\bibitem{Romenski2004}
-%	Romenski E, Toro EF. Compressible two-phase flows: two-pressure models and numerical methods. 
-%\emph{Computational Fluid Dynamics J.} 2004; \textbf{13}:403.
-%	
-%	\bibitem{Romenski2007}
-%	Romenski E, Resnyansky AD, Toro EF. Conservative hyperbolic model for compressible two-phase 
-%flow with different phase pressures and temperatures. \emph{Quarterly Applied Math.} 2007; 
-%\textbf{65}:259.
-%	
-%	\bibitem{RomDrikToro2010}
-%	Romenski E, Drikakis D, Toro EF. Conservative models and numerical methods for one-dimensional 
-%compressible two-phase flow. \emph{J. Sci. Comp.} 2010; \textbf{42}:68.
-%	
-%	\bibitem{Mattia}
-%	La~Spina G, De'Michieli~Vitturi M. High resolution finite volume central schemes for a 
-%compressibile two-phase model, \emph{SIAM J. Sci. Comp.} 2012; \textbf{34}: B861. 
-%	
-%	\bibitem{Romenski2012_It}
-%	De'Michieli~Vitturi M, La~Spina G, Romenski E. 
-%	A compressible single temperature conservative two-phase model with phase
-%	transitions. in \emph{Numerical Analysis and
-%		Applied Mathematics ICNAAM 2013}, Simos TE, Psihoyios G, Tsitouras Ch (eds),
-%	AIP Conf. Proc.; \textbf{1558}:112, American Institute of Physics, NY, 2013.
-%	
-%	
-%	\bibitem{Zeidan2011}
-%	Zeidan D. On a further work of two-phase mixture conservation laws.
-%	in \emph{Numerical Analysis and Applied Mathematics ICNAAM 2011}, Simos TE, Psihoyios G, 
-%Tsitouras Ch, Zacharias Anastassi (eds),  AIP Conf. Proc.; \textbf{1389}:163, American Institute 
-%of 
-%Physics, NY,   2011.
-%	
-%	
-%	\bibitem{Romenski2012}
-%	Romenski E. Hyperbolic systems of conservation laws for
-%	compressible multiphase flows based on thermodynamically
-%	compatible systems theory, in \emph{Numerical Analysis and
-%		Applied Mathematics ICNAAM 2012}, Simos TE, Psihoyios G, Tsitouras Ch, Zacharias Anastassi 
-%(eds), AIP Conf. Proc. \textbf{1479}:62, American Institute of Physics, NY, 2012.
-%	
-%	\bibitem{ToroBook}
-%	{Toro EF.}  \textit{Riemann solvers and numerical methods in
-%		fluid dynamics} Springer-Verlag, Second Edition,1999.
-%	
-%	\bibitem{friedrichs1954}
-%	{Friedrichs KO.} {Symmetric hyperbolic linear differential
-%		equations}. \textit{Comm. Pure Appl. Math.} 1954; {\bf 7}: 
-%	345.
-%	
-%	\bibitem{ToroTitarev}
-%	{Toro EF, Titarev VA.}  {MUSTA schemes for systems of
-%		conservation laws}, {\it J. Comput. Phys.}2006 \textbf{216}: 403.
-%	
