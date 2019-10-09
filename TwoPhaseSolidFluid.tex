@@ -222,6 +222,9 @@ backref,backrefstyle=none,maxbibnames=99]{biblatex}
 \newcommand{\Cs}{C_{\rm s}}
 \newcommand{\Csh}{C_{\rm sh}}
 \newcommand{\Cf}{C_{\rm f}}
+\newcommand{\csh}{c_{\rm sh}}
+\newcommand{\cshf}{c_{{\rm sh},1}}
+\newcommand{\cshs}{c_{{\rm sh},2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -266,7 +269,8 @@ system theory for\\[1mm] multiphase mixtures}}
 	\href{mailto:ilya.peshkov@unitn.it}{e-mail}
 		   }$\ ^, $
 	   \hspace{-2.5mm}
-	   	\thanks{Previously: Paul Sabatier University, Institut de 
+	   	\thanks{The work by I.P. has been started while being at Paul Sabatier 
+	   	University, Institut de 
 	   	Mathe\'ematiques 
 	   	de Toulouse, Toulouse, France}
 \quad
@@ -474,7 +478,9 @@ two-phase compressible fluid model \cite{RomDrikToro2010}.
 \subsection{SHTC governing equations of unified solid-fluid 
 model}\label{sec.GPR}
 
-The PDE system of the unified model for a deforming continuum reads as
+We first recall the governing PDE system of the unified model for a deforming 
+and flowing
+continuum which reads
 \begin{subequations}\label{eqn.HPR}
 \begin{eqnarray} 
 	&&\displaystyle\frac{\partial \rho v^i}{\partial t}+\frac{\partial 
@@ -492,7 +498,7 @@ The PDE system of the unified model for a deforming continuum reads as
 	\label{eqn.entropy}
 \end{eqnarray}
 \end{subequations}
-Here \eqref{eqn.momentum} is the linear momentum conservation law, 
+Here, \eqref{eqn.momentum} is the linear momentum conservation law, 
 \eqref{eqn.conti} 
 is the mass conservation law, \eqref{eqn.deformation} is the evolution of the
 distortion matrix, and \eqref{eqn.entropy} is the entropy balance law.
@@ -507,13 +513,21 @@ connected with density, distortion, and entropy via specific total
 energy 
 $E(\vv,\rho,s,\AA)$:
 \begin{align}
-p:=\rho^2\frac{\partial E}{\partial \rho}, \quad 
-\sigma_{ij} :=-\rho A_{ki}\frac{\partial E}{\partial A_{kj}}, \quad 
-T:=\frac{\partial E}{\partial s}.
+p:=\rho^2\frac{\partial E}{\partial \rho} \equiv \rho^2 E_\rho, 
+\quad 
+\sigma_{ij} :=-\rho A_{ki}\frac{\partial E}{\partial A_{kj}} \equiv -\rho 
+A_{ki} E_{ 
+A_{kj}}, 
+\quad 
+T:=\frac{\partial E}{\partial s} \equiv E_s.
 \end{align}
 The source term in the equation for distortion characterizes the rate of inelastic deformation,
 where $\bm{\psi}=\frac{\partial E}{\partial \AA}$.
-The parameter $\theta(\tau)$ depends on the shear stress relaxation time $\tau$, which can vary from $\infty$ (elastic medium) to $0$ (inviscid fluid).
+The parameter $\theta(\tau)$ depends on the shear stress relaxation time 
+$\tau$, which can vary from $\infty$ (elastic medium) to $0$ (inviscid fluid) 
+via the realm of dissipative media $ 0< \tau < \infty $ (elastoplastic solids, 
+viscous Newtonian and non-Newtonian fluids), see e.g. 
+\cite{Hyper-Hypo2019,HYP2016,Jackson2019a}.
 
 To close the model, we define how the energy $E$ and the parameter $\theta$ depend on the parameters of state.
 We take the energy in the form
@@ -531,21 +545,21 @@ $\ggg=\GG/(\det\hspace{-0.4mm}\GG)^{1/3}$, where
 $\GG=\AA^T\AA$. Then, energy $ E_2 $ can be 
 defined as in \cite{Ndanou2014}:
 \begin{align}
-E_2=\frac{1}{8}c_s^2\left(\tr({\ggg^2})-3\right),
+E_2=\frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right),
 \end{align}
-where $c_s$ is the shear velocity of sound under reference conditions.
+where $\csh$ is the shear velocity of sound under reference conditions.
 
 Using the above definition, we can take
 the derivative of $E$ with respect to $\AA$:
 \begin{align} \label{EderivA}
 \frac{\partial E}{\partial \AA}=\frac{\partial E_2}{\partial 
 \AA}=-\rho^{-1}\FF^T\bm{\sigma}=
-\frac{c_s^2}{2} \bm{F}^T \left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I} \right),
+\frac{\csh^2}{2} \bm{F}^T \left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I} \right),
 \end{align}
 where $\FF=\AA^{-1}$.
 Then the shear stress is trace-free, and it reads as
 \begin{align}
-\bm{\sigma} =-\rho \frac{c_s^2}{2}\left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I}
+\bm{\sigma} =-\rho \frac{\csh^2}{2}\left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I}
 \right), \quad  \tr(\bm{\sigma})=0.
 \end{align} 
 
@@ -553,7 +567,7 @@ The coefficient $\theta$ is a function of the parameters of state, and it should
 \begin{align}
 \theta = \tau \theta_0(\rho,T,Y) \textgreater 0,
 \end{align}
-where $Y=\frac{1}{2}\sqrt{\tr(\bm{\sigma}^2)}$ is the intensity of shear stress.
+where $Y=\sqrt{\frac32\tr(\bm{\sigma}^2)}$ is the intensity of shear stress.
 
 The source term in the equation for distortion produces a nonnegative entropy production source term in \eqref{eqn.entropy}. 
 It is important to note that for system \eqref{eqn.HPR} there is an additional 
@@ -600,7 +614,7 @@ The SHTC system for two-phase compressible flow with a single entropy approximat
 \label{eqn.entropyFF}
 \end{eqnarray}
 \end{subequations}
-Here $\alpha_1$ is the volume fraction of the first phase, which is connected 
+Here, $\alpha_1$ is the volume fraction of the first phase, which is connected 
 with the volume 
 fraction of the second phase $\alpha_2$ via the saturation law 
 $\alpha_1+\alpha_2=1$, $\rho$ is the mixture mass density, which is connected 
@@ -609,7 +623,10 @@ $\rho=\alpha_1\rho_1+\alpha_2\rho_2$. The phase mass fractions are defined as
 $c_1=\alpha_1 \rho_1/\rho, c_2=\alpha_2 \rho_2/\rho$  $(c_1+c_2=1)$. 
 Eventually, 
 $v^i=c_1v_1^i+c_2v_2^i$ is the mixture velocity, $w^i=v_1^i-v_2^i$ is the 
-phase relative velocity, and $s$ is the specific entropy of the mixture.
+phase relative velocity, $s$ is the specific entropy of the mixture, and as 
+throughout this paper, we use the notations $ E_{w^k} \equiv \frac{\pd E}{\pd 
+w^k} $, $ E_{c_1} 
+\equiv \frac{\pd E}{\pd c_s} $, etc.
 
 The phase interaction is presented as algebraic source terms in 
 \eqref{eqn.relvel} and \eqref{eqn.alphaFF} which are proportional to 
@@ -778,13 +795,21 @@ defined is Section\,\ref{sec.GPR} as a measure of deformation of the whole eleme
 of the saturated porous medium. The energy of shear deformation then can be 
 characterized by the energy introduced in Section\,\ref{sec.GPR},
 $
-\frac18c_s^2\left(\tr({\ggg^2})-3\right)
+\frac18\csh^2\left(\tr({\ggg^2})-3\right)
 $. 
-Then we require that shear energy tends to zero 
+Then, we require that shear energy tends to zero 
 if the amount of solid phase tends to zero in the solid-fluid mixture. That is why we take elastic  
-energy in the form
+energy in the form\footnote{In this paper, the effect of the fluid viscosity is 
+taken into account only via the friction source term in the equation for 
+relative velocity \eqref{eqn.relvelMS} while the anisotropic part of the stress 
+tensor does not contain a contribution from viscous stresses. In a more general 
+situation when this contribution has to be taken into account, one should 
+simply 
+take the shear sound speed of the mixture as sum of the shear sound speeds of 
+the phases, $ \csh^2 = c_1 \cshf^2 + c_2 \cshs^2 $. In this paper, shear sound 
+speed of the fluid phase is set to zero, $ \cshf = 0 $.}
 \begin{align} \label{energy,shear}
-E_2=c_2 \frac{1}{8}c_s^2\left(\tr({\ggg^2})-3\right),
+E_2=c_2 \frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right),
 \end{align}
 where, in fact, instead of $c_2$ one can take an arbitrary 
 function of $c_2$ which is equal to zero in the case of $c_2=0$ (pure liquid) 
@@ -851,13 +876,14 @@ For the derivation of the above system from equations \eqref{eqn.MS}, the follow
 formulae for the thermodynamic forces are used:
 \begin{eqnarray} \label{Thermod.forcesSF}
 & E_{\alpha_1}=\frac{p_2-p_1}{\rho}, \quad p=\rho^2E_\rho={\alpha_1p_1+\alpha_2p_2}, 
-\quad \sigma_{ij}=-c_2 \rho \frac{c_s^2}{2}({g_{ik}g_{kj}-\frac{1}{3}g_{mn}g_{nm}\delta_{ij}})=
+\quad \sigma_{ij}=-c_2 \rho 
+\frac{\csh^2}{2}({g_{ik}g_{kj}-\frac{1}{3}g_{mn}g_{nm}\delta_{ij}})=
 \alpha_2 \tilde \sigma_{ij}, 
-\quad  \nonumber \\
+\quad  \nonumber \\[2mm]
 &E_{w^i}=c_1c_2 w^i, \quad 
-E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2-E_2+(1-2c_1)|\ww|^2/2, \\ 
-&E_2=c_2 \frac{1}{8}c_s^2\left(\tr({\ggg^2})-3\right), \quad 
-E_s=T=c_1\frac{\partial e_1}{\partial s}+c_2\frac{\partial e_2}{\partial s} 
+E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2-E_2+(1-2c_1)|\ww|^2/2, \\[2mm]
+&E_2=c_2 \frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right), \quad 
+E_s=T=c_1\frac{\partial e_1}{\partial s}+c_2\frac{\partial e_2}{\partial s}.
 \nonumber
 \end{eqnarray}  
 For the derivation of \eqref{Thermod.forcesSF} we use formula \eqref{energy.mix} for the internal energy of the mixture and the relationship between the mixture parameters and the individual phase densities: $\rho_1=\frac{\rho c_1}{\alpha_1}, \rho_2=\frac{\rho c_2}{\alpha_2}$.
@@ -1119,7 +1145,8 @@ K\frac{\partial w^k}{\partial x_k} =0,   \\   \label{sij}
 \end{eqnarray}
 \end{subequations}
 where $K=\left(\alpha_1^0 K_1^{-1}+\alpha_2^0 K_2^{-1}\right)^{-1}$, 
-$\mu=\rho_2^0 c_s^2$, and $\tau=\frac{\rho^0 \theta}{2 \rho^0_2 c_s^2}$ is the 
+$\mu=\rho_2^0 \csh^2$, and $\tau=\frac{\rho^0 \theta}{2 \rho^0_2 \csh^2}$ is 
+the 
 shear stress relaxation time.
 
 Thus, we have derived the PDE system \eqref{stress.velocity} for small 
