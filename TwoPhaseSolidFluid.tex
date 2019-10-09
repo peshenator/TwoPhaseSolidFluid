@@ -2167,7 +2167,7 @@ very
 small. However, if we 
 zoom in the image, we will be able to see this slow P-wave in 
 Fig.\,\ref{fig:porosity 05 zoom}.
-\begin{figure}[!htbp]
+\begin{figure}%[!htbp]
 \begin{subfigure}{0.5\linewidth}
 \includegraphics[draft=false,width=0.7\textwidth]{Figures/wave_alfa_s_05}
 \caption{}
@@ -2183,7 +2183,7 @@ porosity
 parameter $\phi$=0.5.}
 \label{fig:porosity 05}
 \end{figure}
-\begin{figure}[!htbp]
+\begin{figure}%[!htbp]
 \begin{subfigure}{0.5\linewidth}
 \includegraphics[draft=false,width=1.2\textwidth]{Figures/wave_alfa_s_05_zoom1}
 \caption{}
@@ -2389,9 +2389,9 @@ example from the previous Section\,\ref{sec.frequency} for a frequency
 $f_0=10^{4}$ Hz and compare 
 the solution with a similar test, but with allowance for  relaxation of 
 tangential stresses.
-\begin{figure}[!htbp]
+\begin{figure}[t]
 	\begin{center}
-\includegraphics[draft=false,width=0.75\textwidth]{Figures/Compare_dissip_10_4}
+\includegraphics[draft=false,width=0.7\textwidth]{Figures/Compare_dissip_10_4}
 	\end{center}
 	\caption{{\footnotesize \it  
 	Comparison of seismograms of the mixture velocity $v^1$  for several 
@@ -2445,7 +2445,7 @@ In this example we see that the propagation of all types of waves
 predicted by the elasticity and poroelasticity theories is correct: slow waves arise only 
 in the poroelastic layer, only pressure waves propagate in the liquid layer, while  
 longitudinal and shear waves appear in the elastic medium.
-\begin{figure}[!htbp]
+\begin{figure}[t]%[!htbp]
 	\begin{center}
 	\includegraphics[draft=false,width=0.8\textwidth]{Figures/Layered_media_u1_u2_v4}
 	\end{center}
@@ -2478,7 +2478,7 @@ for small amplitude wave propagation in a stationary saturated porous medium
 has been derived. The linear system is written in terms of the velocity of the 
 solid-fluid mixture, and the relative velocity of the phase motion, pressure and shear 
 stress. Such a formulation allowed us a straightforward development of an 
-efficient finite-difference scheme on a staggered grid.  
+efficient finite difference scheme on a staggered grid.  
 
 A comparison of the above-proposed SHTC model and the classical Biot model for wave 
 propagation in a saturated elastic porous  medium has been made.
@@ -2487,7 +2487,8 @@ the SHTC model is able to describe all the effects (in particular, the
 existence of a slow P-wave) predicted by Biot's theory, in good quantitative 
 and qualitative agreement.
 
-A series of test problems for the SHTC model with several values of 
+A series of two-dimensional test problems for the SHTC model with several 
+values of 
 the parameters of the model, including porosity and interfacial friction, has been 
 solved. The numerical results demonstrate that the SHTC model describes 
 correctly all physical characteristics of the process.   
@@ -2496,7 +2497,6 @@ correctly all physical characteristics of the process.
 % 
 The authors are grateful to M. Yudin for valuable help in the manuscript 
 preparation.
-\\
 The research of E.R. and G.R. in Sects.2-4 was supported by the Russian Science Foundation  under grant 19-77-20004, the research in Sect.5 was supported by the Russian Foundation for Basic Research under grant 19-01-00347.
 I.P. gratefully acknowledges the support of Agence Nationale de la Recherche (FR) 
 (grant ANR-11-LABX-0040-CIMI) under program ANR-11-IDEX-0002-02.
