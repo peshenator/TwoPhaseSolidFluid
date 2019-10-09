@@ -563,9 +563,10 @@ Then the shear stress is trace-free, and it reads as
 \right), \quad  \tr(\bm{\sigma})=0.
 \end{align} 
 
-The coefficient $\theta$ is a function of the parameters of state, and it should be taken in the form 
+The coefficient $\theta$ is a function of the parameters of state, and it can 
+be taken in the form \cite{DPRZ2016,HYP2016,Hyper-Hypo2019}
 \begin{align}
-\theta = \tau \theta_0(\rho,T,Y) \textgreater 0,
+\theta \sim \csh^2 \tau (\rho,T,Y) \textgreater 0,
 \end{align}
 where $Y=\sqrt{\frac32\tr(\bm{\sigma}^2)}$ is the intensity of shear stress.
 
@@ -909,7 +910,7 @@ constituents. These are derived from \eqref{eqn.momentumPV} and
 &&\frac{\partial v^i_1}{\partial t}+v^k_1\frac{\partial v^i_1}{\partial x_k}+
 \frac{1}{\rho_1}\frac{\partial p_1}{\partial x_i}- \frac{1}{\rho}
 \frac{\partial \alpha_2 \tilde \sigma_{ik}}{\partial x_k}+\frac{p_1-p_2}{\rho}\frac{\partial \alpha_1}{\partial x_i} 
--c_2a_{mn}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
+-c_2 E_{A_{mn}}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
 &&+c_2(v^k_1-v^k_2)\left(c_2\left(\frac{\partial v^i_1}{\partial x_k}-\frac{\partial v^k_1}{\partial x_i}\right)+c_1\left(\frac{\partial v^i_2}{\partial x_k}-\frac{\partial v^k_2}{\partial x_i}\right) \right)
 =-\frac{\alpha_2 \rho_2}{\rho} \frac{c_1c_2}{\theta_2}(v_1^i-v_2^i),
 \end{eqnarray}
@@ -917,11 +918,11 @@ constituents. These are derived from \eqref{eqn.momentumPV} and
 &&\frac{\partial v^i_2}{\partial t}+v^k_2\frac{\partial v^i_2}{\partial x_k}+
 \frac{1}{\rho_2}\frac{\partial p_2}{\partial x_i}- \frac{1}{\rho}
 \frac{\partial \alpha_2 \tilde \sigma_{ik}}{\partial x_k}+\frac{p_1-p_2}{\rho}\frac{\partial \alpha_1}{\partial x_i} 
-+c_1a_{mn}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
++c_1 E_{A_{mn}}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
 &&-c_1(v^k_1-v^k_2)\left(c_2\left(\frac{\partial v^i_1}{\partial x_k}-\frac{\partial v^k_1}{\partial x_i}\right)+c_1\left(\frac{\partial v^i_2}{\partial x_k}-\frac{\partial v^k_2}{\partial x_i}\right) \right)
 =\frac{\alpha_1 \rho_1}{\rho} \frac{c_1c_2}{\theta_2}(v_1^i-v_2^i),
 \end{eqnarray}
-where $a_{mn}=\frac{\partial E_2}{\partial A_{mn}}$, and the derivative of $E_2$ with respect to $A_{mn}$ can be taken as in \eqref{EderivA}.
+where the derivative $ E_{A_{mn}} $ can be taken as in \eqref{EderivA}.
 
 In addition to the above equations, we consider phase mass conservation 
 laws 
@@ -1145,9 +1146,8 @@ K\frac{\partial w^k}{\partial x_k} =0,   \\   \label{sij}
 \end{eqnarray}
 \end{subequations}
 where $K=\left(\alpha_1^0 K_1^{-1}+\alpha_2^0 K_2^{-1}\right)^{-1}$, 
-$\mu=\rho_2^0 \csh^2$, and $\tau=\frac{\rho^0 \theta}{2 \rho^0_2 \csh^2}$ is 
-the 
-shear stress relaxation time.
+$\mu=\rho_2^0 \csh^2$, and $\tau $ %=\frac{\rho^0 \theta}{2 \rho^0_2 \csh^2}$
+is the shear stress relaxation time.
 
 Thus, we have derived the PDE system \eqref{stress.velocity} for small 
 amplitude wave propagation in a saturated porous medium at rest. In this 
