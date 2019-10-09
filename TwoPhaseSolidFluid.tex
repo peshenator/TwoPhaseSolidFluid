@@ -1962,9 +1962,9 @@ frequency region, see Fig.\,\ref{fig:Vph.Attenuation}, the second row.
 propagation}\label{sec.numerics}
 
 \subsection{Finite difference implementation}
-To discretize the governing equations, a velocity-stress formulation, which was
+To discretize the governing equations, the velocity-stress formulation, which was
 proposed for elastic-wave equations in  \cite{Levander1988,Virieux1986}, is used. 
-To use a numerical scheme on staggered grids is very natural due to 
+The use of a numerical scheme on staggered grids is quite natural due to 
 the fact that the equations form a symmetric first order system of evolution 
 equations for the  mixture components, relative velocities, pressure, and 
 shear stress.
@@ -1989,10 +1989,10 @@ axes.
     \label{Dx}
 \end{equation}
 
-The material parameters are constant within each grid cell 
+The medium parameters are constant within each grid cell 
 $[x_{i-1/2}, x_{i+1/2}] \times[ y_{j-1/2}, y_{j+1/2}]$, and they may have 
 discontinuities aligned with grid lines. This condition provides  
-second-order convergence even for discontinuous material parameters 
+second-order convergence even for discontinuous medium parameters 
 \cite{Moszo2002}.
 
 The wavefield components are defined at different time-space grid nodes. The 
@@ -2089,7 +2089,7 @@ Core(TM) i7 3.60 GHz processor.
 In the subsequent sections, we  will illustrate the main features of  
 wavefield formation and propagation depending on porosity $\phi$, 
 friction parameter $\theta_2$, source peak frequency $f_{0}$, and  shear relaxation time $\tau$. Before doing 
-this, we start with considering the homogeneous (dissipation-less) case.
+this, we start with considering the homogeneous dissipation-less case.
 
 \subsection{Dependence on  porosity $\phi$.}
 
@@ -2320,7 +2320,7 @@ phase velocity $v_{p}=420 $ m/s for a frequency $f_{0}=10^{5}$ Hz and
 $v_{p}=670 $ m/s  for the frequency $f_{0}=10^{6}$ Hz. 
 It is not possible to make 
 similar estimation for a frequency $f_{0}=10^{4}$ due to the fact that the slow wave has a low amplitude. We 
-can conclude that the attenuation of the slow P-wave is sufficiently strong even 
+can also conclude that the attenuation of the slow P-wave is sufficiently strong even 
 for high frequencies.
 \begin{figure}[!htbp]
 \begin{subfigure}{0.3\linewidth}
@@ -2377,7 +2377,7 @@ model
 irreversible (elastoplastic) deformations in the solid matrix, e.g. 
 \cite{HYP2016,Hyper-Hypo2019}, or viscous flows \cite{DPRZ2016}.
 
-All previous numerical examples were calculated without relaxation of tangential 
+All the previous numerical examples were simulated without relaxation of tangential 
 shear stresses, that is, the right-hand side in \eqref{sij} vanished. Formally, 
 this corresponds to the case of $\tau=\infty$. It is quite obvious that, for 
 finite values of
@@ -2406,7 +2406,7 @@ As expected, a comparison of the seismograms in Fig.\,\ref{fig: Compare_dissip} 
 
 This test illustrates the effects of the interfaces  between pure fluid, poroelastic 
 and 
-pure elastic media by the example of a three-layered medium with the material 
+pure elastic media on an the example of a three-layered medium with the media 
 parameters from Table 
 \ref{tab:parameters}. The size of the computational domain is $0.025$\,m in the 
 $ x $ and $ y $ directions. The upper layer is water, the lower layer is an
