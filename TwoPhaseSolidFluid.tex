@@ -565,7 +565,7 @@ which is the conventional energy conservation law.
 \label{sec.twophase}
 
 In the two-phase compressible fluid model, the flow is considered  
-a mixture of two 
+as a mixture of two 
 immiscible constituents with their own parameters of state. Thus, the general model should take into 
 account the difference between velocities, pressures, and temperatures of the 
 constituents. That means that if 
@@ -1945,7 +1945,7 @@ $\Delta x$, and $\Delta y$ denote the grid step sizes for the temporal and spati
 axes.
 
  For a discrete function $f_{i,j}^{n}=f(t^{n},x_{i},y_{j})$ defined at the grid 
- nodes, let us introduce second-order  centered finite-difference 
+ nodes, let us introduce second-order  centered finite difference 
  operators:
 \begin{equation}
     D_t[f]_{i, j}^{n} = \frac{(f)_{i, j}^{n+1/2} - (f)_{i, j}^{n-1/2}}{\Delta t}, \qquad A_t[f]_{i, j}^{n} = \frac{(f)_{i, j}^{n+1/2} + (f)_{i ,j}^{n-1/2}}{2},
@@ -2042,7 +2042,7 @@ A forcing function $f(t,x,y)$ is introduced as the source term in the
 right-hand side of the pressure equation or the equations for the normal components 
 of 
 the deviatoric stress in system \eqref{stress.velocity}. In both cases, a 
-volumetric-type source term is obtained. Furthermore, the source function is 
+volumetric-type source term is obtained. The source function is 
 defined as the product of Dirac's delta function in space and Ricker's wavelet in time: 
 \begin{equation}
 f(t)=(1-2\pi ^{2} f_{0}^{2}(t-t_{0})^{2})exp[-\pi ^{2}f_{0}^{2}(t-t_{0})^{2}],
