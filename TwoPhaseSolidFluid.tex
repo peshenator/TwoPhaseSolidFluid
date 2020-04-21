@@ -2606,15 +2606,22 @@ correctly all physical characteristics of the process.
 \revThree{1}{Finally, we note that the developed poroelastic model is based on the SHTC formulation 
 of 
 mixtures. It thus should be kept in mind that other approaches to obtain continuum models for 
-mixtures are possible \cite{BlokhinDorovsky1995,PKG-Book2018,Pavelka2014b}. In particular, the 
+mixtures are possible \cite{BlokhinDorovsky1995,PKG-Book2018,Pavelka2014b}. In particular, on the 
+PDE 
+level, the 
 continuum formulation for mixtures obtained in the GENERIC (General Equation for Non-Equilibrium 
 Reversible-Irreversible Coupling) framework \cite{PKG-Book2018,Pavelka2016} differs from the SHTC 
-formulation for mixtures used in this paper by a term $ \sim w^l\left(\frac{\partial w^k}{\partial 
+formulation for mixtures used in this paper by a term $ \sim E_{w^l}\left(\frac{\partial 
+w^k}{\partial 
 x_l}-
-\frac{\partial w^l}{\partial x_k}\right) $ missing in equation \eqref{eqn.relvelMS}. Nevertheless, 
+\frac{\partial w^l}{\partial x_k}\right) $ missing in equation \eqref{eqn.relvelMS}. Also, on 
+the physical level, the GENERIC formulation may differ by a different interpretation of the 
+state variables, e.g. see a discussion on the SHTC compatible and alternative Poisson brackets for 
+heat conduction  and the total momentum definition in \cite{SHTC-GENERIC-CMAT}. Nevertheless, 
 for the 
-case of small amplitude waves, such a term should not result in a different linear system but 
-should vanish as vanishes the term $ v^l\left(\frac{\partial w^k}{\partial 
+case of small amplitude waves, such differences should not result in a different linear system and, 
+in particular, the extra term mentioned above 
+should vanish similar to the term $ v^l\left(\frac{\partial w^k}{\partial 
 	x_l}-
 \frac{\partial w^l}{\partial x_k}\right) $, see equation \eqref{stress.velocity.w}. Perhaps, 
 differences in 
