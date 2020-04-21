@@ -1,0 +1,501 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicodeo
+%\documentclass[3p,times,table]{elsarticle}
+\documentclass[3p,times,table]{article}
+\usepackage[hmarginratio=2:3,top=32mm,left=20mm,columnsep=17pt]{geometry}
+%=============================================================================
+%==========  A L L    I N C L U D E S
+%%%%%%%%%% PACKAGES %%%%%%%%%% 
+%\usepackage[utf8x]{inputenc}
+%\usepackage{epstopdf} %converting to PDF
+%\usepackage{array}
+\usepackage{titling}
+\usepackage[svgnames]{xcolor} 
+\usepackage{tabularx}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}	
+\usepackage{moreverb}
+\usepackage{dsfont}
+\usepackage{tipa}
+\usepackage{upgreek}
+%\usepackage{grffile}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage{ textcomp }
+\usepackage{relsize} % e.g. used for \mathsmaller
+\usepackage{caption}
+\usepackage{subcaption}
+
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% NATBIB options:
+
+\usepackage[numbers]{natbib}
+
+% END NATBIB options.
+
+% BIBLATEX options:
+%\usepackage[backend=bibtex,giveninits=true,sorting=nyt,url=false,doi=true,eprint=false,isbn=false,
+%backref,backrefstyle=none,maxbibnames=99]{biblatex}
+%\DefineBibliographyStrings{english}{%
+%  backrefpage = {Cited on p\adddot},%
+%  backrefpages = {Cited on pp\adddot}%
+%}
+%
+%\bibliography{TwoPhaseSolidFluid}
+%% \bibliography{/home/utilisateur/Dropbox/library}
+%%\bibliography{/home_pers/peshkov/Dropbox/library}
+%
+%\renewcommand*{\bibfont}{\footnotesize}
+%
+%% in order to suppress 'In:'
+%\renewbibmacro{in:}{%
+%  \ifboolexpr{%
+%     test {\ifentrytype{article}}%
+%  }{}{\printtext{\bibstring{in}\intitlepunct}}%
+%}
+% END BIBLATEX options.
+
+
+%%%%%%%%%% PACKAGES %%%%%%%%%%
+
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+
+% To have colored cited papers, hyperlinked to the 
+% bibiography, help to know if papers are not cited
+% but in the bibliography still
+\usepackage{hyperref} 
+\hypersetup{
+    colorlinks=true,                          
+    linkcolor=blue, % Couleur des liens internes
+    citecolor=DarkRed, % Couleur des num�ros de la biblio dans le corps
+    urlcolor=blue  } % Couleur des url
+%\usepackage[hyperpageref]{backref} 
+%usepackage[square,numbers]{natbib}
+%\RequirePackage[hyperpageref]{backref}
+%\backreffrench
+%\renewcommand*{\backref}[1]{}  % Disable standard
+%\renewcommand*{\backrefalt}[4]{% Detailed backref
+ %\ifcase #1 %
+ %\relax%(Not cited.)%
+  %\or
+%% (Cit\'e page~#2.)%
+ %(Cited page~#2.)%
+ %\else
+ %%(Cit\'e pages~#2.) 
+ %(Cited page~#2.)%
+ %\fi}
+
+\setlength{\oddsidemargin}{.5cm} \setlength{\evensidemargin}{.5cm}
+\setlength{\textwidth}{15cm} \setlength{\textheight}{21.0cm}
+\setlength{\topmargin}{0in}
+
+%%%%%%%% NEW COMMANDS %%%%%%%%
+\newcommand{\pd}{\partial}
+\newcommand{\ce}{{\varepsilon}}
+\newcommand{\xx}{{\boldsymbol{x}}}
+\newcommand{\yy}{{\boldsymbol{y}}}
+\newcommand{\zz}{{\boldsymbol{z}}}
+\newcommand{\x}{\mbf{x}}
+\newcommand{\y}{\mbf{y}}
+\newcommand{\Th}{\mathcal{T}_h}				%mesh notation
+\newcommand{\nij}{\mathbf{n}_{ij}}				%outward unit normal to S_ij
+\newcommand{\Eel}{\mathcal{E}_{el} }			%indices set of the real cells
+\newcommand{\Ebd}{\mathcal{E}_{bd} }			%indices set of the virtual cells
+\newcommand{\tEel}{\widetilde{\mathcal{E}_{el}}}	%indices set of the real and virtual cells
+\newcommand{\Epc}{\mathcal{E}_{pc} }			%indices set of problematic cells
+\newcommand{\Unui}{\underline{\nu}(i)}		%indices set of cells linked to K_i by a side
+\newcommand{\Onui}{\overline{\nu}(i)}			%indices set of every cells linked to K_i
+\newcommand{\urec}{\widetilde u}				%polynomial rec sur K
+\newcommand{\Urec}{\widetilde U}				%polynomial rec sur K
+\newcommand{\R}[2]{{\mc{R}}^{\{#1,#2\}}} %NEEDED FOR POLY REC ..
+\newcommand{\CPD}{\textsf{CellPD}}
+%\newcommand{\un}{\textrm{1}}
+\newcommand{\un}{1 \hskip -3pt \textrm{I}}
+\newcommand{\Deg}[1]{ \mathsf{d}_{#1} }
+\newcommand{\EPD}{\textsf{EdgePD}}
+\newcommand{\FPD}{\textsf{FacePD}}
+\newcommand{\EPDMeth}[1]{$\mathsf{EPD}_{\mathsf{#1}}$}
+\newcommand{\mc}[1]{\mathcal{#1}}			% Simplification of usefull calligraphies
+\newcommand{\mbb}[1]{\mathbb{#1}}			%
+\newcommand{\mbf}[1]{\mathbf{#1}}			%
+\newcommand{\msf}[1]{\mathsf{#1}}		       %
+\newcommand{\mait}[1]{\mathit{#1}}			%
+\newcommand{\mfrk}[1]{\mathfrak{#1}}		%
+\newcommand{\tbf}[1]{\textbf{#1}}				%
+\newcommand{\tsf}[1]{\textsf{#1}}				%
+\newcommand{\tit}[1]{\textit{#1}}					%
+\newcommand{\trm}[1]{\textrm{#1}}					%
+\newcommand{\noi}{\noindent}
+\newcommand{\Frac}{\displaystyle\frac}
+\newcommand{\Int}{\displaystyle\int}
+\newcommand{\Sum}{\displaystyle\sum}
+\newcommand{\Bigcup}{\displaystyle\bigcup}
+\newcommand{\Max}{\displaystyle\max}
+\newcommand{\Min}{\displaystyle\min}
+\newcommand{\Eq}[1]{equation {(\ref{#1})}}
+
+\newcommand{\Ell}{\mathcal{L}}
+\newcommand{\emm}{m}
+\newcommand{\dxx}[1]{ \partial_{xx} #1 }
+\newcommand{\dyy}[1]{ \partial_{yy} #1 }
+\newcommand{\dzz}[1]{ \partial_{zz} #1 }
+\newcommand{\HRule}[1]{ {\centering \rule{#1\linewidth}{0.2mm}} }
+\newcommand{\DMPutwo}{$[\text{DMP}\!\to\!u2]$}
+\newcommand{\PADDMPutwo}{$[\text{PAD}\!\to\!\text{DMP}\!\to\!u2]$}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+\newcommand{\mygreen}{\textcolor[rgb]{0.0,0.60,0.}}
+\newcommand{\myorange}{\textcolor[rgb]{0.6,0.0,0.}}
+\newcommand{\oz}[1]{ \textcolor{red}   {\texttt{\textbf{OZ: #1}}} }
+\newcommand{\rmd}{{\rm d}}
+
+
+
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+
+\newcommand{\bea}{\begin{eqnarray} }
+\newcommand{\eea}{\end{eqnarray} }
+
+\newcommand{\apriori}{\textit{a priori} }
+\newcommand{\aposteriori}{\textit{a posteriori} }
+
+\newcommand{\dev}{\textnormal{dev}} 
+
+\renewcommand{\AA}{{\bm{A}}}
+\renewcommand{\aa}{{\bm{a}}}
+\renewcommand{\ggg}{{\bm{g}}}
+\newcommand{\DD}{{\bm{D}}}
+\newcommand{\HH}{{\bm{H}}}
+\newcommand{\sfA}{{\mathsf{A}}}
+\newcommand{\sfB}{{\mathsf{B}}}
+\newcommand{\GG}{{\boldsymbol{G}}}
+\newcommand{\rr}{{\bm{r}}}
+\newcommand{\ee}{{\bm{e}}}
+\newcommand{\bb}{{\bm{b}}}
+\newcommand{\hh}{{\bm{h}}}
+\newcommand{\dd}{{\bm{d}}}
+\newcommand{\vv}{{\bm{v}}}
+\newcommand{\uu}{{\bm{u}}}
+\newcommand{\mcE}{{\mathcal{E}}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\EE}{{\bm{E}}}
+\newcommand{\BB}{{\bm{B}}}
+
+\newcommand{\FF}{{\bm{F}}}
+\newcommand{\II}{{\bm{I}}}
+\newcommand{\JJ}{{\bm{J}}}
+\newcommand{\QQ}{{\bm{Q}}}
+\renewcommand{\SS}{{\bm{S}}}
+\newcommand{\PP}{{\bm{P}}}
+%\newcommand{\SS}{{\boldsymbol{S}}}
+\newcommand{\WW}{{\bm{W}}}
+\newcommand{\ww}{{\bm{w}}}
+\newcommand{\wbf}{{\bm{w}}}
+\newcommand{\pp}{{\bm{p}}}
+\newcommand{\qq}{{\bm{q}}}
+
+\newcommand{\Id}{{\bm{I}}}
+\newcommand{\tr}{\textnormal{tr}}
+\newcommand{\BS}{{\boldsymbol{\sigma}}}
+\renewcommand{\Re}{\textnormal{Re}}
+\newcommand{\transpose}{{\rm {\mathsmaller T}}}
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+\newcommand{\tort}{{\mathcal{T}}}
+\newcommand{\Km}{K_{\rm m}}
+\newcommand{\Ks}{K_{\rm s}}
+\newcommand{\Ku}{K_{\rm u}}
+\newcommand{\Kf}{K_{\rm f}}
+\newcommand{\lambdau}{\lambda_{\rm u}}
+\newcommand{\muu}{\mu_{\rm u}}
+\newcommand{\mus}{\mu_{\rm s}}
+\newcommand{\rhof}{\rho_{\rm f}}
+\newcommand{\rhos}{\rho_{\rm s}}
+\newcommand{\pf}{p_{\rm f}}
+\newcommand{\ps}{p_{\rm s}}
+\newcommand{\alphaf}{\alpha_{\rm f}}
+\newcommand{\alphas}{\alpha_{\rm s}}
+\newcommand{\cf}{c_{\rm f}}
+\newcommand{\cs}{c_{\rm s}}
+\newcommand{\vf}{v_{\rm f}}
+\newcommand{\vs}{v_{\rm s}}
+\newcommand{\Cs}{C_{\rm s}}
+\newcommand{\Csh}{C_{\rm sh}}
+\newcommand{\Cf}{C_{\rm f}}
+\newcommand{\csh}{c_{\rm sh}}
+\newcommand{\cshf}{c_{{\rm sh},1}}
+\newcommand{\cshs}{c_{{\rm sh},2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOC BEGINNING
+
+\newfont{\numerikEleven}{ecrm1000}
+\newfont{\numerikTen}{cmss10}
+\newfont{\numerikNine}{cmss9}
+\newfont{\numerikEight}{cmss8}
+
+% New commands for the revision :
+%\usepackage[dvipsnames]{xcolor}
+\newcommand{\revOne}[1]{\textcolor{Red}{#1}}
+\newcommand{\revThree}[1]{\textcolor{Blue}{#1}}
+
+
+%=========================================================================
+
+\title{\bf Revision 1}
+\date{}
+
+
+\thanksmarkseries{arabic}
+\begin{document} 
+\maketitle
+
+
+\subsection*{Answer to Reviewer 1}
+The paper derives a thermodynamically consistent system of hyperbolic equations describing dynamic 
+behaviour of a two-phase medium that consists of a fluid and solid constituents with the latter 
+manifesting non-elastic response. The resulting model is a generalisation of the two-phase 
+fluid-solid model described in subsection 2.2 of the present paper accounting for strength of the 
+solid matrix. The characteristics parameters of the present system are compared with those of the 
+Biot's system. The paper develops further the symmetric systems of hyperbolic conservative 
+equations of Friedrichs type for a novel type of material and could be of interest to physicists 
+and geophysicists analyzing seismic response of fluid-containing structures. The following comments 
+seem to be relevant for the paper:
+\\
+
+\textbf{1.}      The mathematical formulation is stated quite clearly. However, the physical 
+description of 
+a medium considered is not easily readable. The title of the paper claims consideration of 
+"multiphase mixtures", therefore the reader is trying to identify multiple phases with the 
+understanding later on that only two phases are actually considered. As a suggestion, either the 
+title claims description of the corresponding two-phase mixtures or a graph outlining a schematic 
+of the material and its fluid and condensed phases with elasto-plastic response, is drawn up, which 
+could facilitate the reading. In this case, when formulating the background models in subsections 
+2.1 and 2.2, the authors could refer to such a schematic for specification of the phases described 
+with the corresponding background models, which could make the reading and understanding the paper 
+objective easier. Another misunderstanding is introduced by title of subsection 2.1, which makes 
+the reader to look for
+solid and fluid phases in the background model. In reality, the model described in the subsection 
+deals with a single-phase medium. It would be easier to read if the authors adjust the title and 
+later, in the body of the subsection, inform the reader that the model is applicable to both fluid 
+and solid media, which is controlled by the shear stress relaxation 
+time.
+\\
+\revOne{Thank you. We have changed the title of the paper, referring 
+the theory to a two-phase solid- liquid mixture.
+	We also changed the name of section 2.1 and added there a 
+	sentence 
+	explaining the meaning of the unified continuum model (in red).
+}
+\\
+
+\textbf{2.}      Some small typos and denotation deficiencies need to be addressed. For example, 
+the kinetic 
+energy denotation after equation (10) on page 5 should be $ E_3 $ (not $ E_2 $), $ a_{mn} $ in 
+equation 
+(27) is 
+not introduced (possibly, it relates to $ A_{mn} $, but it is not clear), the derivative of energy 
+with 
+respect to mass concentration at the end of first paragraph on page 5 refers to a wrong phase, $ 
+s_0 $ 
+in equation (28b) is not defined (it seems that subscript '0' in this denotation is redundant 
+because the entropy perturbation used later in (33g) is s). The tilded $ \sigma $ in equation (22) 
+is 
+not introduced: the reader might guess that this is stress in the solid matrix, but this is not 
+confirmed. This denotation is used later on throughout the paper, for example, in equation (31). 
+This symbol is redesignated by $ s_{ij} $ from (37) and on, which results in extra confusion. I 
+would 
+suggest the authors to inspect the denotations once more in order to 
+avoid confusions.
+\\
+\revOne{Thank you. In the revised manuscript, $ E_2 $ is replaced by 
+$ E_3 $.
+	The definition of  $ a_{mn} $ was missed. Now it is presented 
+	after equation (25).
+	In the end of Section 2, the derivative of energy with respect 
+	to 
+	the first phase mass fraction is corrected.
+	$ s_0 $ in (29) is replaced by $ s $.
+	We introduce the single notation $ s_{ij} $ everywhere, instead 
+	of 
+	$ \tilde{\sigma}_{ij}$  and $ s_{ij} $ in (38)
+}
+\\
+
+\textbf{3.}      A comment on temperature limitations for the present formulation would be useful. 
+It is 
+unlikely that the definition of single entropy employed in the present model can be used at extreme 
+temperatures because temperatures of the phases may be different even at the same entropy due to 
+different compression capacities of the phases. Possible definition of phase temperatures (which 
+are not needed for the formulation but could be required by an application) results in the 
+averaging for the mixture temperature without the weighting involving the heat capacity 
+coefficients, which may be required in the case of equilibrating the temperatures. Therefore, a 
+comment on applicability of the model to the quasi-isentropic processes could ensure validity of 
+the formulation for the present applications.
+\\
+\revOne{At the beginning of Section\,2.2, we added a following 
+comment 
+about temperature limitation for the two-phase compressible flow. 
+	`\textit{In our consideration, we restrict ourselves to a single entropy approximation for small variations of phase temperatures. In Ref.[39], it is proved that 
+for multiphase compressible mixtures a single entropy approximation is suitable for the flows close to thermal equilibrium. In this case, the change of phase temperatures due to the small variation of phase entropies is negligibly small.
+Finally note, that we consider only small density variations which means that the processes under consideration are close to thermal equilibrium.
+	}''\\
+	Also, a phrase``\textit{As noted at the beginning of Section 
+	2.2, 
+	for 
+	processes which are close to thermal equilibrium, the 
+	single-entropy approximation is acceptable.}'' is added in 
+	Section 
+	2.3 in the description of two-phase solid/fluid model.
+}
+\\
+
+\textbf{4.}      The shear deformation energy in equation (18) is obviously related to the matrix 
+phase 
+only. The footnote on page 7 refers the corresponding speed of shear waves for the mixture to 
+$ c_{sh} $. On the other side, the authors define the distortion tensor A (and associated tensor g 
+in 
+(18)) only for the mixture. Therefore, there is some unclarity with the thermodynamical calculation 
+of the shear stresses and corresponding speed for the solid phase. Specifically, is $ c_{sh} $ 
+introduced 
+in subsection 2.1 and used in (18) actually $ c_{sh} $ mentioned in the footnote? Some comment or 
+brief 
+explanation would help in understanding of this part of the paper.
+\\
+\revOne{We added  to Sect. 2.3 (after eq.(18))  a justification of 
+the definition of 
+shear energy (in red).}
+\\
+
+\textbf{5.}      I would recommend an enlargement of figure legends for figures 3-6, 8, 10, and 11 
+in order 
+to make them more readable.
+\\
+\revOne{Thank you. The legends for figures 3-6, 8, 10-12 have been 
+expanded}.
+\\
+
+\textbf{6.}      Specification of the test problems in the last paragraph of conclusion is 
+required. A 
+simple limitation of the problems to those within the approximation of small-amplitude wave 
+propagation would be sufficient.
+\\
+\revOne{Thank you. A specification of the test problems added in 
+Conclusions Section.}
+\\
+
+The paper contains an interesting and novel formulation of a two-phase fluid-solid model and could 
+be useful to scientists in the relevant area of science. After clarification of the comments above, 
+requiring a minor revision, the paper can be recommended for publication without further revision.
+\newpage
+
+\subsection*{Answer to Reviewer 3}
+The purpose of the manuscript seems to be to formulate evolution of porous media within the 
+Symmetric Hyperbolic Thermodynamically Compatible (SHTC) equations and to compare the model with 
+the standard Biot equations. Both goals have clearly been achieved and superiority of the SHTC 
+model is clearly presented. I believe that further discussion of the modeling part could improve 
+readability of the manuscript, which is why I suggest a minor revision, see comments below.
+\\
+
+\textbf{1.} The SHTC equations are usually derived by a 
+Lagrange-Euler transformation. However, 
+another 
+derivation of at least some parts of SHTC is possible, based on kinetic theory (in the sense of 
+Liouville equation). For instance in monography [1] or paper [2] a theory of mixtures is derived 
+from the Liouville equation, which is equipped with two momenta (each for one species). This seems 
+to be in close relation with Eqs. 21 (dropping the distortion, however), but there is a difference. 
+In the approch coming from Liouville equation both momenta are advected by themselves (i.e. the 
+right hand side of the evolution equation for the first momentum contains derivative of energy with 
+respect to the the momentum and analogically for the second momentum). These self-advection terms 
+are reversible, they do not raise entropy. Similar terms also appear in theories of mixtures based 
+on extended irreversible thermodynamics, see e.g. [3]. On the other hand, the equation for w, e.g. 
+(9e),
+contains no such term. The term, however, would be invisible in 1D simulations, as it would be 
+proportional to the curl of w (as in the heat conduction model in [1]). Could you please comment on 
+this difference?
+\\
+\revThree{Thank you. Indeed, such a term is missing in the equation 
+for $ \ww $. Nevertheless, it should not affect the resulting 
+linearized system and should vanish. We believe the differences in 
+solution with and without such a term should appear when considering 
+finite strain deformations. That would be interesting to consider 
+such a possibility in the future. We added a comment discussing this 
+aspect in the conclusion.}
+
+\textbf{2.} The equations themselves seem to be more or less standard in the context of SHTC 
+literature. 
+Comparison with Biot equations were made for instance in [4]. Could you please explicitly declare 
+novelty of the manuscript?
+\\
+\revThree
+{Thank you. We now explicitly listed the novelties of the 
+current 
+manuscript in the Introduction (in blue).}
+\\
+
+Minor details:\\
+
+\textbf{3.} Why is in Eq. 9 the w-field with an upper index? From 
+the construction of the SHTC 
+equation it 
+should be equipped with a lower index, as in the terms with 
+derivative of energy with respect to w.
+\\
+\revThree{The positioning of the indexes for vectors is not related 
+to the tensor notations but we merely reserve the subscripts in the 
+velocities for denoting the phase, 1 or 2 to make it consistent with 
+subscripts in $ c_1 $, $ \alpha_1 $, while the superscript in 
+velocities is 
+reserved for denoting the vector components. A comment was added 
+after system (1) in blue.}
+\\
+
+\textbf{4.} In Eqs. 21 there are three velocity-like fields, $ \ww 
+$, 
+$ \vv_1 $ and $ \vv_2 $ although 
+there were 
+only two ($ \vv $ 
+and $ \ww $) in the preceding equations. Could you please clarify 
+what are 
+the state variables in Eqs. 21?
+\\
+\revThree{Indeed, the velocities $ \vv_{1} $ and $ \vv_2 $ are the 
+velocities of the constituents, their components denoted as $ v_1^i 
+$ and $ v_2^i $, $ i=1,2,3 $ correspondingly. They were introduced 
+in Sec.2.3. We write them now more explicitly as an outline formula, 
+see 
+eq.(15).}
+
+References:
+\\
+
+[1] Pavelka, Klika, Grmela, Multiscale Thermo-Dynamics, de Gruyter 2018.\\
+
+[2] Pavelka, M., Klika, V., Esen, O. and Grmela, M., A hierarchy of Poisson brackets in 
+non-equilibrium thermodynamics, Physica D: Nonlinear Phenomena 335 (2016), pages 54-69 \\
+
+[3] Pavelka, M., Marsik, F., Klika, V., Consistent theory of mixtures on different levels of 
+description, Int. J. Eng. Sci. 78C (2014), pp. 192-217 \\
+
+[4] Elena Vazquez-Cendon, Arturo Hidalgo, Pilar Garcia-Navarro \& Luis Cea: Numerical Methods for 
+Hyperbolic Equations:Theory and Applications, CRC press 2013
+
+%\printbibliography
+%\bibliographystyle{plainurl}
+%\bibliography{library}
+
+
+
+
+
+
+
+\end{document}

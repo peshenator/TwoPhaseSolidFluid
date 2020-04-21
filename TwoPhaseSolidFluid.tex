@@ -1,5 +1,6 @@
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicodeo
+%\documentclass[3p,times,table]{elsarticle}
 \documentclass[3p,times,table]{article}
 \usepackage[hmarginratio=2:3,top=32mm,left=20mm,columnsep=17pt]{geometry}
 %=============================================================================
@@ -7,7 +8,7 @@
 %%%%%%%%%% PACKAGES %%%%%%%%%% 
 %\usepackage[utf8x]{inputenc}
 %\usepackage{epstopdf} %converting to PDF
-\usepackage{array}
+%\usepackage{array}
 \usepackage{titling}
 \usepackage[svgnames]{xcolor} 
 \usepackage{tabularx}
@@ -228,6 +229,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \newcommand{\Csh}{C_{\rm sh}}
 \newcommand{\Cf}{C_{\rm f}}
 \newcommand{\csh}{c_{\rm sh}}
+\newcommand{\cshm}{c_{{\rm sh,m}}}
 \newcommand{\cshf}{c_{{\rm sh},1}}
 \newcommand{\cshs}{c_{{\rm sh},2}}
 
@@ -241,6 +243,9 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \newfont{\numerikNine}{cmss9}
 \newfont{\numerikEight}{cmss8}
 
+% New commands for the revision :
+\newcommand{\revOne}[2]{\textcolor{Red}{ [Rev1, Q.#1]: }\textcolor{Red}{#2}}
+\newcommand{\revThree}[2]{\textcolor{Blue}{ [Rev3, Q.#1]: }\textcolor{Blue}{#2}}
 %=========================================================================
 
 % TITLE
@@ -248,30 +253,35 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 Modeling wavefields in saturated elastic porous media\\[1mm] based on 
 thermodynamically 
 compatible 
-system theory for\\[1mm] multiphase mixtures}}
+system theory for\\[1mm] \textcolor{red}{two-phase solid-fluid} mixtures}}
 %-------------------------------------------------------
 %-------------------------------------------------------
 % AUTHORS
 \author{\fontsize{10pt}{10pt}
 	\textsc{Evgeniy Romenski},\hspace{-2mm}
 	\thanks{Sobolev Institute of Mathematics, 4 Acad. Koptyug Avenue, 630090 
-	Novosibirsk, 
-	Russia, \href{mailto:evrom@math.nsc.ru}{e-mail}
-		   }$\ ^, $
-   \hspace{-3mm}
-   \thanks{Novosibirsk State University, 2 Pirogova Str., 630090 Novosibirsk, Russia}
-	\hspace{-1.5mm}$\ ^,$\samethanks[4]
+	Novosibirsk, Russia, 
+	\href{mailto:evrom@math.nsc.ru}{e-mail: evrom@math.nsc.ru}
+		   }
+% $\ ^, $
+%   \hspace{-3mm}
+%   \thanks{Novosibirsk State University, 2 Pirogova Str., 630090 Novosibirsk, Russia}
+%	\hspace{-1.5mm}$\ ^,$\samethanks[4]
 \quad 
 %
 	\textsc{Galina Reshetova},\hspace{-2mm}
-	\thanks{Institute of Computational Mathematics and Mathematical Geophysics, 6 Pr. 
-	Akademika Lavrentjeva, 630090 Novosibirsk, Russia, 	\href{mailto:kgv@nmsf.sscc.ru}{e-mail}
+	\samethanks[1]
+	\hspace{-3mm}
+    $\ ^, $
+    \hspace{-2.5mm}
+ 	\thanks{Institute of Computational Mathematics and Mathematical Geophysics, 6 Pr. 
+	Akademika Lavrentjeva, 630090 Novosibirsk, Russia, 	\href{mailto:kgv@nmsf.sscc.ru}{e-mail: kgv@nmsf.sscc.ru}
 		   }
 \quad
 	\textsc{Ilya Peshkov},\hspace{-2mm}
 	\thanks{Department of Civil, Environmental and Mechanical Engineering, 
 	University of Trento, Via Mesiano 77, 38123 Trento, Italy,
-	\href{mailto:ilya.peshkov@unitn.it}{e-mail}
+	\href{mailto:ilya.peshkov@unitn.it}{e-mail: ilya.peshkov@unitn.it}
 		   }$\ ^, $
 	   \hspace{-2.5mm}
 	   	\thanks{The work by I.P. has been started while being at Paul Sabatier 
@@ -280,7 +290,7 @@ system theory for\\[1mm] multiphase mixtures}}
 	   	de Toulouse, Toulouse, France}
 \quad
 	\textsc{Michael Dumbser},\hspace{-2mm}
-	\samethanks[4]
+	\samethanks[3]
 	   }
 
 %\cortext[cor1]{{Ilya Peshkov is on leave from Sobolev Institute of Mathematics , 4 Acad. Koptyug 
@@ -384,7 +394,6 @@ fracturing, fuel cells, food production, etc. require new advanced models and
 methods. 
 
 To simulate the development of nonlinear, temperature dependent processes in porous media, methods of continuum mechanics and, in particular, multiphase theories can be successfully used. 
-%A comprehensive review of the past and existing aproaches in the development of porous media %models one can find in the book \cite{Nikolaevsky}
 A two-phase approach to poroelasticity has been, perhaps, most consistently
 implemented by Wilmanski in \cite{Wilmanski1998,Wilmanski2006} (see also 
 references therein). In particular, in a review paper, \cite{Wilmanski2006}, 
@@ -406,7 +415,17 @@ with finite deformations.
 
 In this paper, we apply a powerful method of designing  new models of 
 complex continuum media, which is  based on a thermodynamically compatible system 
-theory \cite{God1961,Godunov:1995a,Godunov1996}. It allows the development of 
+theory \cite{God1961,Godunov:1995a,Godunov1996}. 
+\revThree{2}{In \cite{Romenski2013}, the mentioned theory was first time applied to designing a 
+model 
+for deformed porous medium saturated by a compressible fluid. In this paper the 
+governing equations were formulated and small amplitude wave propagation has been studied showing a 
+qualitative agreement with Biot's theory. The present study contains further developments of 
+ideas from \cite{Romenski2013} based on the unified model of continuum \cite{DPRZ2016,DPRZ2017} as 
+well as a quantitative comparison with Biot's theory and a series of numerical experiments proving 
+the physical correctness of the model.
+}
+The thermodynamically compatible system theory allows the development of 
 well-posed models satisfying the
 fundamental laws of irreversible thermodynamics. 
 In \cite{Godunov:1995a,Rom1998,Romenski2001,Godrom2003,SHTC-GENERIC-CMAT},
@@ -480,12 +499,15 @@ hyperbolic thermodynamically compatible (SHTC) system, a unified thermodynamical
 \cite{HPR2016,DPRZ2016} is coupled to a
 two-phase compressible fluid model \cite{RomDrikToro2010}. 
 
-\subsection{SHTC governing equations of unified solid-fluid 
-model}\label{sec.GPR}
-
-We first recall the governing PDE system of the unified model for a deforming 
-and flowing
-continuum which reads
+\subsection{SHTC governing equations of the \textcolor{red}{unified model of 
+continuum}}\label{sec.GPR}
+\revOne{1}{
+We start our consideration with a brief recall of the unified model of continuum, the 
+formulation of which can be found \cite{HPR2016,DPRZ2016}. This model can describe elastic and
+elastoplastic behavior of the medium, as well as flows of a viscous fluid by a single PDE system.
+}
+First, we recall the governing equations of the unified model for a deforming 
+and flowing continuum which reads
 \begin{subequations}\label{eqn.HPR}
 \begin{eqnarray} 
 	&&\displaystyle\frac{\partial \rho v^i}{\partial t}+\frac{\partial 
@@ -508,9 +530,14 @@ Here, \eqref{eqn.momentum} is the linear momentum conservation law,
 is the mass conservation law, \eqref{eqn.deformation} is the evolution of the
 distortion matrix, and \eqref{eqn.entropy} is the entropy balance law.
 
-As an independent set of state parameters we take 
-velocity $v^k$, mass density $\rho$, distortion $A_{ik}$, and entropy $s$.
-Density is connected with distortion  by an algebraic compatibility constraint such as 
+As an independent set of state parameters we take the medium
+velocity $v^k$, mass density $\rho$, distortion $A_{ik}$, and entropy $s$. \revThree{3}{Note that 
+positioning of the tensorial index in the velocity field $ v^k $ as a superscript is merely 
+conditioned by 
+that the subscript is reserved for the constituent index and is not intending to distinguish 
+covariant and contravariant components of a tensor which coincide with each other in a 
+Cartesian coordinate system.}
+The density is connected with the distortion  by an algebraic compatibility constraint such as 
 $\rho=\rho_0 \det\hspace{-0.6mm}\AA$, where $\rho_0$ is a reference density.
 Additional parameters of the medium presented in the above system are 
 pressure $p$, shear stress $\sigma_{ik}$, and temperature $T$. They are 
@@ -527,19 +554,18 @@ A_{kj}},
 T:=\frac{\partial E}{\partial s} \equiv E_s.
 \end{align}
 The source term in the equation for distortion characterizes the rate of inelastic deformation,
-where $\bm{\psi}=\frac{\partial E}{\partial \AA}$.
-The parameter $\theta(\tau)$ depends on the shear stress relaxation time 
-$\tau$, which can vary from $\infty$ (elastic medium) to $0$ (inviscid fluid) 
-via the realm of dissipative media $ 0< \tau < \infty $ (elastoplastic solids, 
-viscous Newtonian and non-Newtonian fluids), see e.g. 
-\cite{Hyper-Hypo2019,HYP2016,Jackson2019a}.
+where $\bm{\psi}=\frac{\partial E}{\partial \AA}$, while the function $\theta(\tau)$ depends on the 
+shear stress relaxation time $\tau$. \revOne{1}{This strain relaxation source term is one of the 
+key elements of the model since it makes it possible to apply the model to description of both 
+elasto-plastic deformations of solids \cite{Godrom2003,Hyper-Hypo2019} as well as flows of viscous 
+fluids \cite{DPRZ2016,HYP2016,Jackson2019a,Busto2019}}.
 
 To close the model, we define how the energy $E$ and the parameter $\theta$ depend on the parameters of state.
 We take the energy in the form
 \begin{align}
 E=E_1(\rho,s)+E_2(\rho,s,\AA)+E_3(\vv), \label{energy}
 \end{align}
-where $E_3=\frac{1}{2}v^iv^i$ is specific kinetic energy,
+where $E_3=\frac{1}{2}\Vert \vv \Vert^2$ is specific kinetic energy,
 $E_1$ is the "hydrodynamic" part corresponding to the energy of  volume deformations only,
 and $E_2$ is the energy of shear strain.
 In order to provide a zero trace of shear stress, $\tr (\bm{\sigma})=0$, we take 
@@ -550,28 +576,28 @@ $\ggg=\GG/(\det\hspace{-0.4mm}\GG)^{1/3}$, where
 $\GG=\AA^T\AA$. Then, energy $ E_2 $ can be 
 defined as in \cite{Ndanou2014}:
 \begin{align}
-E_2=\frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right),
+E_2=\frac{1}{8}c_s^2\left(\tr({\ggg^2})-3\right),
 \end{align}
-where $\csh$ is the shear velocity of sound under reference conditions.
+where $c_s$ is the shear velocity of sound under reference conditions.
 
 Using the above definition, we can take
 the derivative of $E$ with respect to $\AA$:
 \begin{align} \label{EderivA}
 \frac{\partial E}{\partial \AA}=\frac{\partial E_2}{\partial 
 \AA}=-\rho^{-1}\FF^T\bm{\sigma}=
-\frac{\csh^2}{2} \bm{F}^T \left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I} \right),
+\frac{c_s^2}{2} \bm{F}^T \left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I} \right),
 \end{align}
 where $\FF=\AA^{-1}$.
 Then the shear stress is trace-free, and it reads as
 \begin{align}
-\bm{\sigma} =-\rho \frac{\csh^2}{2}\left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I}
+\bm{\sigma} =-\rho \frac{c_s^2}{2}\left(\ggg^2-\frac{\tr({\ggg^2})}{3} \bm{I}
 \right), \quad  \tr(\bm{\sigma})=0.
 \end{align} 
 
 The coefficient $\theta$ is a function of the parameters of state, and it can 
 be taken in the form \cite{DPRZ2016,HYP2016,Hyper-Hypo2019}
 \begin{align}
-\theta \sim \csh^2 \tau (\rho,T,Y) \textgreater 0,
+\theta \sim c_s^2 \tau (\rho,T,Y) \textgreater 0,
 \end{align}
 where $Y=\sqrt{\frac32\tr(\bm{\sigma}^2)}$ is the intensity of shear stress.
 
@@ -595,10 +621,14 @@ account the difference between velocities, pressures, and temperatures of the
 constituents. That means that if 
 we consider  velocity, density, and entropy to be the basic parameters of 
 state, they can be 
-different for each phase. In our consideration, we restrict ourselves to a 
-single entropy 
-approximation which is suitable for small variations of phase temperatures 
-\cite{Romenski2016}.
+different for each phase. 
+\revOne{3}{In our consideration, we restrict ourselves to a single entropy approximation for small variations of phase temperatures. In \cite{Romenski2016}, it is proved that 
+for multiphase compressible mixtures a single entropy approximation is suitable for the flows 
+close to thermal equilibrium. In this case, the change of phase temperatures due to the small 
+variation of phase entropies is negligibly small.
+Finally note, that we consider only small density variations which means that the processes under 
+consideration are close to thermal equilibrium.
+}
 
 The SHTC system for two-phase compressible flow with a single entropy approximation 
 \cite{RomDrikToro2010} reads as follows:
@@ -650,12 +680,12 @@ The energy conservation law holds in the following form:
 \frac{\partial \left(\rho  v^k E +v^i(p \delta_{ik}+\rho w^i E_{w^k}) +\rho E_{c_1}E_{w_k} \right)}{\partial x_k}=0,
 \end{align}
 where $E=E_1(\alpha_1, c_1, \rho, s)+E_3(\vv)+E_4(c_1,\ww)$, $E_1$ is the 
-specific internal energy of the mixture, $E_2=\vv^2/2$ is the kinetic energy of 
+specific internal energy of the mixture, $E_3=\vv^2/2$ is the kinetic energy of 
 the mixture, and $E_4=\frac{1}{2}c_1c_2\ww^2$ is the kinematic energy of the
 relative motion.
 Note that 
 \begin{align}
-E_3+E_4=\frac{1}{2}(\alpha_1\rho_1 \vv_1^2+\alpha_2\rho_2 \vv_2^2). 
+E_3+E_4=\frac{1}{2}(\alpha_1\rho_1 \Vert\vv_1\Vert^2+\alpha_2\rho_2 \Vert\vv_2\Vert^2). 
 \end{align}
 
 The most important closing relation for system \eqref{eqn.HPRFF}
@@ -671,7 +701,7 @@ where $e_i(\rho_i,s)$ is the specific internal energy of the $ i $-th phase.
 This definition leads to the following formulae for the thermodynamic forces (the derivatives of internal energy with respect to the parameters of state) \cite{RomDrikToro2010,Romenski2016}:
 \begin{eqnarray} \label{Thermod.forces}
 & E_{\alpha_1}=\frac{p_2-p_1}{\rho}, \quad p=\rho^2E_\rho={\alpha_1p_1+\alpha_2p_2}, \quad E_{w_i}=c_1c_2 w_i, \\
-& E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2+(1-2c_1)\ww^2/2, \quad 
+& E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2+(1-2c_1)\Vert\ww\Vert^2/2, \quad 
 E_s=T=c_1\frac{\partial e_1}{\partial s}+c_2\frac{\partial e_2}{\partial s}. 
 \nonumber
 \end{eqnarray}  
@@ -760,10 +790,18 @@ with the phase mass densities via $\rho=\alpha_1\rho_1+\alpha_2\rho_2$.
 The parameter 
 $c_1$ represents the mass fraction of the liquid component. And, by analogy 
 with the two-phase flow
-model, $v^i=c_1v_1^i+c_2v_2^i$ is the velocity of the mixture and 
-$w^i=v_1^i-v_2^i$ is the relative velocity.
+model, 
+\begin{equation}\label{eqn.vel}
+\textcolor{blue}{
+	v^i=c_1v_1^i+c_2v_2^i, \qquad  w^i=v_1^i-v_2^i 
+				}
+\end{equation}
+is the velocity of the mixture and the relative velocity, respectively.
 We consider a single entropy approximation of the two-phase medium and introduce 
-the entropy of the mixture $s$. Finally, as a measure of deformation of the 
+the entropy of the mixture $s$. 
+\revOne{3}{As noted at the beginning of Section 2.2, for processes which are close to thermal 
+equilibrium, the single entropy approximation is acceptable.}
+Finally, as a measure of deformation of the 
 element of the porous medium we consider the distortion $\AA$ of the mixture.  
 
 
@@ -779,7 +817,7 @@ E=E_1(\alpha_1, c_1, \rho, s)+E_2(c_1,\rho,s,\AA)+E_3(\vv)+E_4(c_1,\ww).
 Here we assume that 
 \begin{align} \label{energy12.SF}
 E_1=c_1e_1(\rho_1,s)+c_2e_2(\rho_2,s), \quad
-E_3=\frac{1}{2}\vv^2, \quad E_4=c_1c_2\frac{1}{2}\ww^2.
+E_3=\frac{1}{2}\Vert\vv\Vert^2, \quad E_4=c_1c_2\frac{1}{2}\Vert\ww\Vert^2.
 \end{align}
 We take the part of energy related to volume deformation as the mass 
 averaged energy of the phases, because it naturally follows from the additivity 
@@ -789,40 +827,87 @@ of the energy per unit volume:
 \end{align}
 The kinetic energy of the relative motion, $E_4$, remains the same as is in the 
 two-phase flow model.
-As to the energy of shear deformation, $E_2$, there is no rigorous 
-justification for its definition. It is clear that the volume deformation of 
-two-phase mixture can be represented as the sum of the volume deformations of the solid 
-and fluid constituents. On the other hand, general deformation, and shear 
-deformation in particular, cannot be 
-simply divided into solid and fluid parts, and hence one can take the 
-normalized 
-distortion 
-defined is Section\,\ref{sec.GPR} as a measure of deformation of the whole element 
-of the saturated porous medium. The energy of shear deformation then can be 
-characterized by the energy introduced in Section\,\ref{sec.GPR},
+
+\revOne{4}{
+There is no rigorous justification for determining the shear strain energy, $ E_2 $. It is clear 
+that the volume deformation of two-phase mixtures can be represented as the sum of the volume 
+deformations of the solid and fluid constituents, that is why we define the volumetric energy as 
+the mass averaged phase energies. As for any arbitrary strain measure of the mixture element, it is 
+not clear whether it can be divided into parts related to the
+solid and liquid constituents separately. That is why we use the distortion 
+of the 
+mixture as a parameter of state, the rate of which is connected with spatial derivatives of the 
+mixture velocity. Moreover,
+we assume that the shear part of internal energy depends on the elastic deformation tensor of the 
+mixture and define it by formula   \eqref{sec.GPR}:
 $
-\frac18\csh^2\left(\tr({\ggg^2})-3\right)
-$. 
-Then, we require that shear energy tends to zero 
-if the amount of solid phase tends to zero in the solid-fluid mixture. That is why we take elastic  
-energy in the form\footnote{In this paper, the effect of the fluid viscosity is 
-taken into account only via the friction source term in the equation for 
-relative velocity \eqref{eqn.relvelMS} while the anisotropic part of the stress 
-tensor does not contain a contribution from viscous stresses. In a more general 
-situation when this contribution has to be taken into account, one should 
-simply 
-take the shear sound speed of the mixture as sum of the shear sound speeds of 
-the phases, $ \csh^2 = c_1 \cshf^2 + c_2 \cshs^2 $. In this paper, shear sound 
-speed of the fluid phase is set to zero, $ \cshf = 0 $.}
-\begin{align} \label{energy,shear}
-E_2=c_2 \frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right),
+E_2=\frac18 \cshm^2\left(\tr({\ggg^2})-3\right), 
+$
+where $\cshm$ is the shear speed of sound of the mixture to be determined.
+}
+\textcolor{red}
+{
+It can be naturally assumed that in the limiting case $ c_1 = 0, c_2 = 1 $, which corresponds to 
+the pure solid state, the shear energy corresponds to the elastic shear energy if $\cshm$ equals 
+the 
+shear sound 
+velocity of the solid medium. On the other hand, recalling that we consider the ideal fluid (no 
+resistance 
+to shear), we can take $\cshm=0 $ in the pure fluid limiting case $(c_1=1, c_2=0)$ and hence, there 
+is no 
+contribution to the shear part of the total energy. From this reasoning, it follows that for the 
+intermediate case $(0 < c_1,c_2 < 1,)$, we should choose $\cshm$ in such a way that it disappears 
+for 
+the pure fluid medium and is equal to the solid shear speed of sound for the pure solid medium. 
+That is 
+why we assume that for the solid-fluid mixture $\cshm^2=c_2\csh^2$, where $\csh$ is the shear speed 
+of 
+sound of the skeleton, and take the shear energy in the form
+\begin{align}\label{energy,shear}
+E_2=c_2 \frac18\csh^2\left(\tr({\ggg^2})-3\right). 
 \end{align}
-where, in fact, instead of $c_2$ one can take an arbitrary 
-function of $c_2$ which is equal to zero in the case of $c_2=0$ (pure liquid) 
-and 
-equal to $1$ in the case of $c_2=1$ (pure solid),
-However, our choice seems to be the simplest one, and it gives physically 
-reasonable results in the modeling of wavefields.
+It can be shown then via the characteristic analysis \cite{Romenski2013} that such a choice of the 
+shear elastic energy gives the shear characteristic speed for the mixture $\cshm=\sqrt{c_2}\csh$, 
+that seems to be a reasonable approximation but can be further refined if it is necessary to 
+achieve 
+better agreement with experimental data. }
+
+
+
+
+
+%As to the energy of shear deformation, $E_2$, there is no rigorous 
+%justification for its definition. It is clear that the volume deformation of 
+%two-phase mixture can be represented as the sum of the volume deformations of the solid 
+%and fluid constituents. On the other hand, general deformation, and shear 
+%deformation in particular, cannot be 
+%simply divided into solid and fluid parts, and hence one can take the 
+%normalized distortion defined is Section\,\ref{sec.GPR} as a measure of deformation of the whole element 
+%of the saturated porous medium. The energy of shear deformation then can be 
+%characterized by the energy introduced in Section\,\ref{sec.GPR},
+%$
+%\frac18\csh^2\left(\tr({\ggg^2})-3\right)
+%$. 
+%Then, we require that shear energy tends to zero 
+%if the amount of solid phase tends to zero in the solid-fluid mixture. That is why we %take elastic  
+%energy in the form\footnote{In this paper, the effect of the fluid viscosity is 
+%taken into account only via the friction source term in the equation for 
+%relative velocity \eqref{eqn.relvelMS} while the anisotropic part of the stress 
+%tensor does not contain a contribution from viscous stresses. In a more general 
+%situation when this contribution has to be taken into account, one should 
+%simply 
+%take the shear sound speed of the mixture as sum of the shear sound speeds of 
+%the phases, $ \csh^2 = c_1 \cshf^2 + c_2 \cshs^2 $. In this paper, shear sound 
+%speed of the fluid phase is set to zero, $ \cshf = 0 $.}
+%\begin{align} \label{energy,shear}
+%E_2=c_2 \frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right),
+%\end{align}
+%where, in fact, instead of $c_2$ one can take an arbitrary 
+%function of $c_2$ which is equal to zero in the case of $c_2=0$ (pure liquid) 
+%and 
+%equal to $1$ in the case of $c_2=1$ (pure solid),
+%However, our choice seems to be the simplest one, and it gives physically 
+%reasonable results in the modeling of wavefields.
 
 As soon as we define the generalized energy by \eqref{energy.SF}, 
 \eqref{energy12.SF}, \eqref{energy.mix}, \eqref{energy,shear}, the closing 
@@ -841,7 +926,7 @@ which reads as
 \end{align}
 and should be used instead of the entropy balance law \eqref{eqn.entropyMS} in the development of numerical methods. 
 
-Finally, with the above definitions of the energies, we obtain the 
+With the above definitions of the energies, we obtain the 
 following system of governing PDEs for compressible flow in deforming 
 porous media, which is written in terms of the phase parameters:
 \begin{subequations}\label{eqn.PV}
@@ -862,7 +947,7 @@ v^k_1}{\partial
 v^k_2}{\partial 
 	x_k}=0,\label{eqn.contiPV2}\\[2mm]
 &&\displaystyle\frac{\partial w^k}{\partial 
-t}+\frac{((\vv_1^2-\vv_2^2)/2+e_1+p_1/\rho_1-e_2-p_2/\rho_2-E_2)}{\partial 
+t}+\frac{((v_1^j v_1^j-v_2^j v_2^j)/2+e_1+p_1/\rho_1-e_2-p_2/\rho_2-E_2)}{\partial 
 x_k}
 +v^l\left(\frac{\partial w^k}{\partial x_l}-
 \frac{\partial w^l}{\partial x_k}\right)
@@ -874,7 +959,7 @@ x_k}
 &&\displaystyle\frac{\partial \rho s}{\partial t}+\frac{\partial \rho 
 	s v^k }{\partial x_k}=\dfrac{\rho}{\theta T}\psi_{ik} \psi_{ik}+
 \dfrac{\rho}{\theta_1 T}\varphi^2 +
-\dfrac{\rho}{\theta_2 T}\lambda_k \lambda_k \geq0, 
+\dfrac{\rho}{\theta_2 T}\lambda_k \lambda_k \geq0.
 \label{eqn.entropyPV}
 \end{eqnarray}
 \end{subequations}
@@ -882,13 +967,12 @@ For the derivation of the above system from equations \eqref{eqn.MS}, the follow
 formulae for the thermodynamic forces are used:
 \begin{eqnarray} \label{Thermod.forcesSF}
 & E_{\alpha_1}=\frac{p_2-p_1}{\rho}, \quad p=\rho^2E_\rho={\alpha_1p_1+\alpha_2p_2}, 
-\quad \sigma_{ij}=-c_2 \rho 
-\frac{\csh^2}{2}({g_{ik}g_{kj}-\frac{1}{3}g_{mn}g_{nm}\delta_{ij}})=
-\alpha_2 \tilde \sigma_{ij}, 
+\quad \sigma_{ij}=\alpha_2 s_{ij}, \quad s_{ij}=- 
+\frac{\rho_2\csh^2}{2}({g_{ik}g_{kj}-\frac{1}{3}{g_{mn}g_{nm}}\delta_{ij}}),
 \quad  \nonumber \\[2mm]
 &E_{w^i}=c_1c_2 w^i, \quad 
-E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2-E_2+(1-2c_1)|\ww|^2/2, \\[2mm]
-&E_2=c_2 \frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right), \quad 
+E_{c_1}=e_1+p_1/\rho_1-e_2-p_2/\rho_2-c_2^{-1}E_2+(1-2c_1)\frac{\Vert\ww\Vert^2}{2}, \\[2mm]
+& E_2=c_2 \frac{1}{8}\csh^2\left(\tr({\ggg^2})-3\right), \quad 
 E_s=T=c_1\frac{\partial e_1}{\partial s}+c_2\frac{\partial e_2}{\partial s}.
 \nonumber
 \end{eqnarray}  
@@ -896,7 +980,7 @@ For the derivation of \eqref{Thermod.forcesSF} we use formula \eqref{energy.mix}
 Details of the derivation can be found, for example, in 
 \cite{RomDrikToro2010,Romenski2016}. 
  
-The system of equations \eqref{eqn.PV} is equivalent to \eqref{eqn.MS} if the
+System \eqref{eqn.PV} is equivalent to \eqref{eqn.MS} if the
 total mass conservation law 
 \eqref{eqn.contiMS} is replaced by the mass conservation law for the second phase 
 \eqref{eqn.contiPV2}.
@@ -914,20 +998,20 @@ constituents. These are derived from \eqref{eqn.momentumPV} and
 \begin{eqnarray}\label{eqns.momentum1.quasilinear}
 &&\frac{\partial v^i_1}{\partial t}+v^k_1\frac{\partial v^i_1}{\partial x_k}+
 \frac{1}{\rho_1}\frac{\partial p_1}{\partial x_i}- \frac{1}{\rho}
-\frac{\partial \alpha_2 \tilde \sigma_{ik}}{\partial x_k}+\frac{p_1-p_2}{\rho}\frac{\partial \alpha_1}{\partial x_i} 
--c_2 E_{A_{mn}}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
+\frac{\partial \alpha_2 s_{ik}}{\partial x_k}+\frac{p_1-p_2}{\rho}\frac{\partial \alpha_1}{\partial x_i} 
+-c_2 a_{mn}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
 &&+c_2(v^k_1-v^k_2)\left(c_2\left(\frac{\partial v^i_1}{\partial x_k}-\frac{\partial v^k_1}{\partial x_i}\right)+c_1\left(\frac{\partial v^i_2}{\partial x_k}-\frac{\partial v^k_2}{\partial x_i}\right) \right)
 =-\frac{\alpha_2 \rho_2}{\rho} \frac{c_1c_2}{\theta_2}(v_1^i-v_2^i),
 \end{eqnarray}
 \begin{eqnarray} \label{eqns.momentum2.quasilinear}
 &&\frac{\partial v^i_2}{\partial t}+v^k_2\frac{\partial v^i_2}{\partial x_k}+
 \frac{1}{\rho_2}\frac{\partial p_2}{\partial x_i}- \frac{1}{\rho}
-\frac{\partial \alpha_2 \tilde \sigma_{ik}}{\partial x_k}+\frac{p_1-p_2}{\rho}\frac{\partial \alpha_1}{\partial x_i} 
-+c_1 E_{A_{mn}}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
+\frac{\partial \alpha_2 s_{ik}}{\partial x_k}+\frac{p_1-p_2}{\rho}\frac{\partial \alpha_1}{\partial x_i} 
++c_1 a_{mn}\frac{\partial A_{mn}}{\partial x_i}\\ \nonumber
 &&-c_1(v^k_1-v^k_2)\left(c_2\left(\frac{\partial v^i_1}{\partial x_k}-\frac{\partial v^k_1}{\partial x_i}\right)+c_1\left(\frac{\partial v^i_2}{\partial x_k}-\frac{\partial v^k_2}{\partial x_i}\right) \right)
 =\frac{\alpha_1 \rho_1}{\rho} \frac{c_1c_2}{\theta_2}(v_1^i-v_2^i),
 \end{eqnarray}
-where the derivative $ E_{A_{mn}} $ can be taken as in \eqref{EderivA}.
+where $a_{mn}={\partial (c_2^{-1}E_2)}/{\partial A_{mn}}$ and the derivative ${\partial E_2}/{\partial A_{mn}}$ can be taken as in \eqref{EderivA}.
 
 In addition to the above equations, we consider phase mass conservation 
 laws 
@@ -968,7 +1052,7 @@ v_1^k=v_2^k=0, \quad \rho_1=\rho_1^0, \quad \rho_2=\rho_2^0,
 \end{align}  
 The other parameters of the medium computed with the above ones also correspond to the medium at rest:
 \begin{align}
-p_1=p_2=0, \quad \tilde \sigma_{ik}=0, \quad v^k=0, \quad w^k=0, \quad a_{mn}=0.
+p_1=p_2=0, \quad s_{ik}=0, \quad v^k=0, \quad w^k=0, \quad a_{mn}=0.
 \end{align}
 
 We are interested in differential equations for small 
@@ -982,7 +1066,7 @@ goal is to find a solution  to the system of equations \eqref{eqns.momentum1.qua
 		\rho_1=\rho_1^0 +\delta \rho_1, \quad \rho_2=\rho_2^0+\delta \rho_2, 
 		\\[2mm] 
 		\alpha_1=\alpha_1^0+\delta \alpha_1, \quad A_{ij}=\delta_{ij}+\delta 
-		A_{ij}, \quad s=0+\delta s_0.
+		A_{ij}, \quad s=0+\delta s.
 	\end{gather}
 \end{subequations}
 Equations for perturbations of the equilibrium solution can be derived by 
@@ -1017,7 +1101,7 @@ where $\varepsilon_{ij}=-(\delta A_{ij}+\delta A_{ji})/2$ are the components of 
 Almansi strain tensor $ \bm{\varepsilon} $. Thus, for small
 perturbations we have
 \begin{align} \label{stress1}
-\delta \sigma_{ij}= \alpha_2^0 \tilde \sigma_{ij} =
+\delta \sigma_{ij}= \alpha_2^0 s_{ij} =
 2\alpha_2^0 \rho_2^0 c^2_s \left(\varepsilon_{ij}-\frac{\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{22}}{3}\delta_{ij}\right).
 \end{align}  
 Small perturbation of $E_{\AA}=-\FF^T \bm{\sigma}$ reads as
@@ -1032,12 +1116,12 @@ following system:
 	\begin{eqnarray}
 &&\frac{\partial v^i_1}{\partial t}+
 \frac{1}{\rho_1^0}\frac{\partial p_1}{\partial x_i}- \frac{\alpha_2^0}{\rho^0}
-\frac{\partial \tilde \sigma_{ik}}{\partial x_k}
+\frac{\partial s_{ik}}{\partial x_k}
 =-\frac{\alpha_2^0 \rho_2^0}{\rho^0}\frac{c_1^0c_2^0}{\theta_2}(v_1^i-v_2^i), 
  \\
 &&\frac{\partial v^i_2}{\partial t}+
 \frac{1}{\rho_2^0}\frac{\partial p_2}{\partial x_i}- \frac{\alpha_2^0}{\rho^0}
-\frac{\partial \tilde \sigma_{ik}}{\partial x_k}
+\frac{\partial s_{ik}}{\partial x_k}
 =+\frac{\alpha_1^0 \rho_1^0}{\rho^0}\frac{c_1^0c_2^0}{\theta_2}(v_1^i-v_2^i), 
  \\
 %
@@ -1059,7 +1143,7 @@ x_j}
 One can see that entropy remains constant in time. That means that  
 entropy 
 has no influence on small perturbation wavefields, and the equation for 
-entropy can be neglected. Also, because the shear stress $\tilde \sigma_{ij}$ 
+entropy can be neglected. Also, because the shear stress $s_{ij}$ 
 depends on the small strain tensor $\varepsilon_{ij}$,  the equation for 
 distortion $\AA$ \eqref{eqns.linear.complete0.A} can be replaced by an
 equation 
@@ -1075,12 +1159,12 @@ Finally, we obtain the following system:
 	\begin{eqnarray}
 &&\frac{\partial v^i_1}{\partial t}+
 \frac{1}{\rho_1^0}\frac{\partial p_1}{\partial x_i}- \frac{\alpha_2^0}{\rho^0}
-\frac{\partial \tilde \sigma_{ik}}{\partial x_k}
+\frac{\partial s_{ik}}{\partial x_k}
 =-\frac{\alpha_2^0 \rho_2^0}{\rho^0}\frac{c_1^0c_2^0}{\theta_2}(v_1^i-v_2^i), 
  \\
 &&\frac{\partial v^i_2}{\partial t}+
 \frac{1}{\rho_2^0}\frac{\partial p_2}{\partial x_i}- \frac{\alpha_2^0}{\rho^0}
-\frac{\partial \tilde \sigma_{ik}}{\partial x_k}
+\frac{\partial s_{ik}}{\partial x_k}
 =+\frac{\alpha_1^0 \rho_1^0}{\rho^0}\frac{c_1^0c_2^0}{\theta_2}(v_1^i-v_2^i), 
  \\
 %
@@ -1131,9 +1215,9 @@ a single equation for the pressure $P$:
 \end{align}
 
 Now, taking into account \eqref{stress}, \eqref{pressure.equation} and $v_1^k=v^k+c_2^0w^k$, 
-$v_2^k=v^k-c_1^0w^k$ and denoting $s_{ik}=\tilde \sigma_{ik}$, we obtain the resulting 
-system written in terms of the mixture velocities, relative velocities, 
-pressure, and shear stress:
+$v_2^k=v^k-c_1^0w^k$,
+%and denoting $s_{ik}=\tilde \sigma_{ik}$, 
+we obtain the resulting system written in terms of the mixture velocities, relative velocities, pressure, and shear stress:
 \begin{subequations}\label{stress.velocity}
 	\begin{eqnarray} 
 && \rho^0 \frac{\partial v^i}{\partial t}+\frac{\partial P}{\partial x_i}-
@@ -2132,10 +2216,11 @@ spacing between the receivers.
 \includegraphics[draft=false,width=0.8\textwidth]{alfa_s_1}
 \caption{}
 \end{subfigure}%
-\caption{A snapshot at time $T_{0}$ (a) and seismogram (b) of the mixture 
-velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz and 
-porosity 
-parameter $\phi$=0.}
+\caption{\textcolor{red}
+{
+Wavefield in the pure elastic medium generated by the Ricker wavelet of a volumetric type. A snapshot at time $T_{0}= 1.1\cdot10^{-4}$ s (a) and seismogram (b) of the horizontal mixture 
+velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz. }
+}
 \label{fig:porosity 0}
 \end{figure}
 
@@ -2154,10 +2239,11 @@ Fig.\,\ref{fig:porosity 1}(b) to be exactly 1500 m/s.
 \includegraphics[draft=false,width=0.8\textwidth]{alfa_s_00}
 \caption{}
 \end{subfigure}%
-\caption{A snapshot at time $T_{0}$ (a) and seismogram (b) of the mixture 
-velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz  and 
-porosity 
-parameter $\phi$=1.}
+\caption{\textcolor{red}
+{
+Wavefield in the pure fluid generated by the Ricker wavelet of a volumetric type.        A snapshot at time $T_{0}= 1.1\cdot10^{-4}$ s (a) and seismogram (b) of the mixture 
+horizontal velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz.}
+}
 \label{fig:porosity 1}
 \end{figure}
 
@@ -2182,10 +2268,10 @@ Fig.\,\ref{fig:porosity 05 zoom}.
 \includegraphics[draft=false,width=0.8\textwidth]{alfa_s_05}
 \caption{}
 \end{subfigure}%
-\caption{A snapshot at time $T_{0}$ (a) and seismogram (b) of the mixture 
-velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz  and 
-porosity 
-parameter $\phi$=0.5.}
+\caption
+{\textcolor{red}
+{ Wavefield in the porous medium with porosity $\phi=0.5$ generated by the Ricker wavelet of a volumetric type. A snapshot at time $T_{0}= 1.1\cdot10^{-4}$ s (a) and seismogram (b) of the mixture horizontal velocity $v^1$  for source of central frequency $f_{0} =10^{5}$ Hz.}
+}
 \label{fig:porosity 05}
 \end{figure}
 \begin{figure}%[!htbp]
@@ -2198,10 +2284,11 @@ parameter $\phi$=0.5.}
 \includegraphics[draft=false,width=0.8\textwidth]{alfa_s_05_zoom}
 \caption{}
 \end{subfigure}%
-\caption{A zoom of snapshot at time $1\cdot10^{-5}s$  (a) and seismogram (b) of the mixture 
-velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz and 
-porosity 
-parameter $\phi$=0.5.}
+\caption{
+\textcolor{red}
+{Wavefield in the porous medium with porosity $\phi=0.5$ generated by the Ricker wavelet of a volumetric type. A zoom of snapshot at time $1\cdot10^{-5}$ s (a) and seismogram (b) of the mixture horizontal
+velocity $v^1$  for source of central frequency $f_{0} =10^{5} $ Hz.}
+}
 \label{fig:porosity 05 zoom}
 \end{figure}
  The amplitude variation  for several values of $\phi$ can also be 
@@ -2211,10 +2298,13 @@ parameter $\phi$=0.5.}
 	\begin{center}
 		\includegraphics[draft=false,width=1.0\textwidth]{Compare_alfa}
 	\end{center}
-\caption{The wavefield distribution along the $x$-axis  at  
-time $2.1\cdot10^{-5}s$ and $y=0$ of the mixture velocity $v^1$ for several values of 
-$\phi$: $\phi=0.2$ (black), $\phi=0.5$ (blue), $\phi=0.8$ 
+\caption{
+\textcolor{red}
+{The distribution of the mixture horizontal velocity $v^1$ generated by the Ricker wavelet of a volumetric type along the $x$-axis at  
+time $2.1\cdot10^{-5}$ s and $y=0$  for several values of 
+porosity $\phi$: $\phi=0.2$ (black), $\phi=0.5$ (blue), $\phi=0.8$ 
 (red).}
+}
 \label{fig:porosity different}
 \end{figure}
 
@@ -2270,7 +2360,10 @@ experiment.
 \includegraphics[draft=false,width=1\textwidth]{Xi_31_new}
 \caption{$ \quad\quad \theta_2=1/2\cdot3.36\cdot10^{-7} $}
 \end{subfigure}%
-\caption{Snapshots at time $2.1\cdot10^{-5}s$ of the mixture velocity $v^1$ for several values of $ \theta_2 $.}
+\caption{\textcolor{red}
+{Wavefield in the porous medium with porosity $\phi=0.5$ generated by the Ricker wavelet of a volumetric type.
+Snapshots at time $2.1\cdot10^{-5}$ s of the horizontal mixture velocity $v^1$ for several values of $ \theta_2 $.}
+}
 \label{fig:compare_friction}
 \end{figure}
 \begin{figure}[!htbp]
@@ -2342,8 +2435,11 @@ for high frequencies.
 \includegraphics[draft=false,width=1\textwidth]{frec_big_10_6}
 \caption{$\quad\quad f_0=10^{6} $}
 \end{subfigure}%
-\caption{  Snapshots of the mixture velocity $v^1$ for several frequencies: 
+\caption{\textcolor{red}
+{Wavefield in the porous medium with porosity $\phi=0.5$ generated by the Ricker wavelet of a volumetric type.
+Snapshots of the horizontal mixture velocity $v^1$ for several frequencies: 
 $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz (c).  }
+}
 \label{fig:compare_frewuency}
 \end{figure}
 
@@ -2365,7 +2461,10 @@ height=0.15\textheight]{frec_10_5_new2}
 height=0.15\textheight]{frec_10_6_new2}
 \caption{$\quad\quad f_0=10^{6} $}
 \end{subfigure}%
-\caption{ Seismograms of the mixture velocity $v^1$ for several frequencies: $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz(c).  }
+\caption{ \textcolor{red}
+{Wavefield in the porous medium with porosity $\phi=0.5$ generated by the Ricker wavelet of a volumetric type.
+Seismograms of the horizontal mixture velocity $v^1$ for several frequencies: $f_0=10^{4}$ Hz (a), $f_0=10^{5}$ Hz (b), $f_0=10^{6}$ Hz(c).  }
+}
 \label{fig:compare_frewuency_trace}
 \end{figure}
 
@@ -2398,10 +2497,12 @@ tangential stresses.
 	\begin{center}
 \includegraphics[draft=false,width=0.7\textwidth]{Compare_dissip_10_4}
 	\end{center}
-	\caption{{\footnotesize \it  
-	Comparison of seismograms of the mixture velocity $v^1$  for several 
-	values of $\tau$:
-	no dissipation - black, $\tau=10^{-5}$ - red, $\tau=10^{-4}$ - blue.}}
+	\caption{{
+	\textcolor{red}%\footnotesize \it  
+	{Comparison of seismograms of the horizontal mixture velocity $v^1$  for several 
+	values of shear relaxation time $\tau$:
+	no relaxation (black), $\tau=10^{-5}$ (red), $\tau=10^{-4}$ (blue).}}
+	}
 	\label{fig: Compare_dissip}
 \end{figure}
 As expected, a comparison of the seismograms in Fig.\,\ref{fig: Compare_dissip} shows that relaxation of tangential stresses leads to dispersion and attenuation of seismic waves. On the distant receivers, it is seen that the smaller $\tau$, the greater the attenuation. On the nearer receivers, dispersion probably has a predominant effect.
@@ -2454,7 +2555,8 @@ longitudinal and shear waves appear in the elastic medium.
 	\begin{center}
 	\includegraphics[draft=false,width=0.8\textwidth]{Layered_media_u1_u2_v4}
 	\end{center}
-	\caption{{\footnotesize \it  Snapshots of $ ||v||^2 $ for a layered medium: water (upper 
+	\caption{{%\footnotesize \it  
+	Snapshots of the norm of mixture velocity $ ||v||^2 $ for a layered medium: water (upper 
 	layer, $ \phi=1 $), poroelastic (middle layer,  $ \phi=0.2 $) and elastic 
 	solid  (bottom layer, $ \phi=0 $).}}
 	\label{fig: layered_snap}
@@ -2486,17 +2588,39 @@ stress. Such a formulation allowed us a straightforward development of an
 efficient finite difference scheme on a staggered grid.  
 
 A comparison of the above-proposed SHTC model and the classical Biot model for wave 
-propagation in a saturated elastic porous  medium has been made.
+propagation in a saturated elastic porous  medium has been made \revOne{6}{at the aid of the 
+dispersion 
+analysis}.
 It turns out that, although the basic equations of the two models are different, 
 the SHTC model is able to describe all the effects (in particular, the 
 existence of a slow P-wave) predicted by Biot's theory, in good quantitative 
 and qualitative agreement.
 
-A series of two-dimensional test problems for the SHTC model with several 
-values of 
-the parameters of the model, including porosity and interfacial friction, has been 
-solved. The numerical results demonstrate that the SHTC model describes 
-correctly all physical characteristics of the process.   
+\revOne{6}
+{
+A number of two-dimensional test problems has been solved for the propagation of small-amplitude waves described by the formulated model. These test problems include, in particular, the study of the dependence of wavefields on model parameters.
+}
+The numerical results demonstrate that the SHTC model describes 
+correctly all physical characteristics of the process.
+
+\revThree{1}{Finally, we note that the developed poroelastic model is based on the SHTC formulation 
+of 
+mixtures. It thus should be kept in mind that other approaches to obtain continuum models for 
+mixtures are possible \cite{BlokhinDorovsky1995,PKG-Book2018,Pavelka2014b}. In particular, the 
+continuum formulation for mixtures obtained in the GENERIC (General Equation for Non-Equilibrium 
+Reversible-Irreversible Coupling) framework \cite{PKG-Book2018,Pavelka2016} differs from the SHTC 
+formulation for mixtures used in this paper by a term $ \sim w^l\left(\frac{\partial w^k}{\partial 
+x_l}-
+\frac{\partial w^l}{\partial x_k}\right) $ missing in equation \eqref{eqn.relvelMS}. Nevertheless, 
+for the 
+case of small amplitude waves, such a term should not result in a different linear system but 
+should vanish as vanishes the term $ v^l\left(\frac{\partial w^k}{\partial 
+	x_l}-
+\frac{\partial w^l}{\partial x_k}\right) $, see equation \eqref{stress.velocity.w}. Perhaps, 
+differences in 
+solutions should appear in case of finite deformations of poroelastic continuum. We hope to 
+investigate this in detail in future publications.
+}
 
 \section*{Acknowledgements}
 % 
@@ -2505,19 +2629,23 @@ preparation.
 The research of E.R. and G.R. in Sects.2-4 was supported by the Russian Science Foundation  under grant 19-77-20004, the research in Sect.5 was supported by the Russian Foundation for Basic Research under grant 19-01-00347.
 I.P. gratefully acknowledges the support of Agence Nationale de la Recherche (FR) 
 (grant ANR-11-LABX-0040-CIMI) under program ANR-11-IDEX-0002-02.
-The work of M.D. was partially supported by the European Union's Horizon 2020 Research and Innovation  Programme under project \textit{ExaHyPE}. 
-M.D. also gratefully acknowledges funding from the Italian Ministry of Education, University and Research (MIUR) under the Departments of Excellence Initiative 2018--2022 attributed to DICAM of the University of Trento, as well as financial support from the University of Trento under the  \textit{Strategic Initiative Modeling and Simulation}.
+The work of M.D. and I.P. was partially supported by the European Union's Horizon 2020 Research and 
+Innovation  Programme under project \textit{ExaHyPE}. 
+M.D. and I.P. also gratefully acknowledge funding from the Italian Ministry of Education, 
+University and Research (MIUR) under the Departments of Excellence Initiative 2018--2022 attributed 
+to DICAM of the University of Trento, as well as financial support from the University of Trento 
+under the  \textit{Strategic Initiative Modeling and Simulation}. I.P. has further received funding 
+from  
+the University of Trento via the \textit{UniTN Starting Grant initiative}.
 
+\noindent \section*{In memoriam}
+\noindent This paper is dedicated to the memory of Dr. Douglas Nelson Woods ($^*$January 11\textsuperscript{th} 1985 - $\dagger$September 11\textsuperscript{th} 2019),
+promising young scientist and post-doctoral research fellow at Los Alamos National Laboratory.
+Our thoughts and wishes go to his wife Jessica, to his parents Susan and Tom, to his sister Rebecca and to his brother Chris, whom he left behind.
 
 
 %\printbibliography
 \bibliographystyle{plainurl}
 \bibliography{library}
-
-
-
-
-
-
 
 \end{document}
